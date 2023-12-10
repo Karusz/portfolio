@@ -1,3 +1,12 @@
+<?php
+    require "function.php";
+
+    if(isset($_POST['login-btn'])){
+        Login($_POST['username'], $_POST['password']);
+    }
+
+
+?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -16,18 +25,18 @@
 <body>
     <div class="wrapper">
         <div class="inner">
-            <form action="">
+            <form action="login.php" method="post">
                 <h3>Bejelentkezes</h3>
                 <div class="form-holder">
                     <span class="lnr lnr-user"></span>
-                    <input type="text" class="form-control" placeholder="Felhasznalonev">
+                    <input type="text" class="form-control" name="username" placeholder="Felhasznalonev">
                 </div>
                 <div class="form-holder">
                     <span class="lnr lnr-lock"></span>
-                    <input type="password" class="form-control" placeholder="Jelszo">
+                    <input type="password" class="form-control" name="password" placeholder="Jelszo">
                 </div>
                 <div>
-                    <input type="submit" value="Bejelentkezes">
+                    <input type="submit" name="login-btn" value="Bejelentkezes">
                 </div>
             </form>
         </div>
