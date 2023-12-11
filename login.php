@@ -26,17 +26,17 @@
     <div class="wrapper">
         <div class="inner">
             <form action="login.php" method="post">
-                <h3>Bejelentkezes</h3>
+                <h3>Bejelentkezés</h3>
                 <div class="form-holder">
                     <span class="lnr lnr-user"></span>
-                    <input type="text" class="form-control" name="username" placeholder="Felhasznalonev">
+                    <input type="text" class="form-control" name="username" placeholder="Felhasználónév">
                 </div>
                 <div class="form-holder">
                     <span class="lnr lnr-lock"></span>
-                    <input type="password" class="form-control" name="password" placeholder="Jelszo">
+                    <input type="password" class="form-control" name="password" placeholder="Jelszó">
                 </div>
                 <div>
-                    <input type="submit" name="login-btn" value="Bejelentkezes">
+                    <input type="submit" name="login-btn" value="Bejelentkezés">
                 </div>
             </form>
         </div>

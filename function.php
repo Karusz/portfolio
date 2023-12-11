@@ -13,7 +13,7 @@
             $conn->query("INSERT INTO users VALUES(id, '$username', '$email', '$hashcode')");
 
         }else{
-            echo '<script>alert("Van mar ilyen felhasznalo")</script>';
+            echo '<script>alert("Van már ilyen felhasznaló")</script>';
         }
     }
 
@@ -32,10 +32,10 @@
                 echo '<script>alert("Siker!")</script>';
 
             }else {
-                echo '<script>alert("Nem jo a felhasznalonev vagy a jelszo!")</script>';
+                echo '<script>alert("Nem jó a felhasználonév vagy a jelszó!")</script>';
             }
         }else {
-            echo '<script>alert("Nem jo a felhasznalonev vagy a jelszo!")</script>';
+            echo '<script>alert("Nem jó a felhasználonév vagy a jelszó!")</script>';
         }
     }
 

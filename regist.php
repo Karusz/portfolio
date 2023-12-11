@@ -6,7 +6,7 @@
         if($_POST['password'] == $_POST['repassword']){
             Reg($_POST['username'], $_POST['email'], $_POST['password']);
         }else{
-            echo '<script>alert("Nem ugyan az a jelszo")</script>';
+            echo '<script>alert("Nem ugyan az a jelszó")</script>';
         }
         
     }
@@ -31,7 +31,7 @@
     <div class="wrapper">
         <div class="inner">
             <form action="regist.php" method="post">
-                <h3>regisztracio</h3>
+                <h3>Regisztráció</h3>
                 <div class="form-holder">
                     <span class="lnr lnr-user"></span>
                     <input type="text" name="username" class="form-control" placeholder="Felhasznalonev">
@@ -49,7 +49,7 @@
                     <input type="password" name="repassword" class="form-control" placeholder="Jelszo Ujra">
                 </div>
                 <div>
-                    <input type="submit" name="reg-btn" value="Regisztracio">
+                    <input type="submit" name="reg-btn" value="Regisztráció">
                 </div>
             </form>
         </div>
