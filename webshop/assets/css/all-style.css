@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Muli-Regular";
+}
+
+body{
+    height: 100%;
+    background-color: gray;
+}
+
+/* FEJLEC */
+
+.navbar{
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    z-index: 999;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 0 14px rgba(255, 0, 0, 0.89);
+}
+
+.logo h1{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: red;
+    display: block;
+    transition: 0.3s;
+
+}
+
+.navbar .menu li{
+    list-style: none;
+    display: inline-block;
+}
+
+.navbar .menu li a{
+    display: block;
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.navbar .menu li a i{
+    color: red;
+}
+
+.navbar .menu li a i:hover{
+    color: white;
+}
+
+.navbar .menu li a:hover{
+    color: red;
+}
+
+/* FEJLEC END */
+
+/* SIDENAV */
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: black;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* SIDENAVEND */
+
+.pheading{
+    text-align: center;
+    margin: 50px 0;
+    color: black;
+}
+
+footer{
+    text-align: center;
+    padding: 20px;
+    background-color: black;
+    color: white;
+}
+
+footer p a{
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+}
+

@@ -20,7 +20,7 @@
     <title>Webshop</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/all-style.css">
     <link rel="stylesheet" href="assets/css/login-reg-style.css">
 
     <!-- SCRIPT -->

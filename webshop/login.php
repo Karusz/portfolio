@@ -15,7 +15,7 @@
     <title>Webshop</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/all-style.css">
     <link rel="stylesheet" href="assets/css/login-reg-style.css">
 
     <!-- SCRIPT -->
@@ -37,6 +37,9 @@
                 </div>
                 <div>
                     <input type="submit" name="login-btn" value="Bejelentkezés">
+                </div>
+                <div class="reg">
+                    <p>Nincs meg fiokod? <a href="">Regisztracio</a></p>
                 </div>
             </form>
         </div>

@@ -21,9 +21,9 @@ form {
   width: 100%;
   position: relative;
   z-index: 9;
-  padding: 77px 61px 66px;
+  padding: 77px 61px 40px;
   background: #444444;
-  box-shadow: 0px 0px 15px 5px rgb(177, 177, 177);
+  box-shadow: 0px 0px 15px 5px rgb(255, 0, 0);
 }
   
 h3 {
@@ -88,5 +88,22 @@ input[type=submit] {
 
 input[type=submit]:hover{
   background-color: #24242481;
+}
+
+.reg p{
+  text-align: center;
+  color: white;
+  padding: 20px;
+  
+}
+
+.reg p a{
+  text-decoration: none;
+  color: red;
+  padding-left: 5px;
+}
+
+.reg p a:hover{
+  color: white;
 }
   
