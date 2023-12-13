@@ -1,26 +1,33 @@
 <?php
 
-    function Reg($username, $email, $password){
+    function Reg($name, $email, $password){
         $conn = new mysqli("localhost", "root", "", "webshop");
 
         $hashcode = password_hash($password,PASSWORD_BCRYPT);
 
-        $lekerd = "SELECT * FROM users WHERE username='$username'";
+        $lekerd = "SELECT * FROM users WHERE email='$email'";
         $talalt = $conn->query($lekerd);
 
         if(mysqli_num_rows($talalt) == 0){
 
-            $conn->query("INSERT INTO users VALUES(id, '$username', '$email', '$hashcode')");
+            $lekerd = "SELECT * FROM users WHERE name='$name'";
+            $talalt = $conn->query($lekerd);
+
+            if (mysqli_num_rows($talalt) == 0) {
+                $conn->query("INSERT INTO users VALUES(id, '$name', '$email', '$hashcode','','')");
+            }else {
+                echo '<script>alert("Van már ilyen felhasznalonev!")</script>';
+            }
 
         }else{
-            echo '<script>alert("Van már ilyen felhasznaló")</script>';
+            echo '<script>alert("Van már ilyen email!")</script>';
         }
     }
 
-    function Login($username, $password){
+    function Login($email, $password){
         $conn = new mysqli("localhost", "root", "", "webshop");
 
-        $lekerd = "SELECT * FROM users WHERE username='$username'";
+        $lekerd = "SELECT * FROM users WHERE email='$email'";
         $talalt = $conn->query($lekerd);
 
         if(mysqli_num_rows($talalt) == 1){
@@ -32,10 +39,10 @@
                 echo '<script>alert("Siker!")</script>';
 
             }else {
-                echo '<script>alert("Nem jó a felhasználonév vagy a jelszó!")</script>';
+                echo '<script>alert("Nem jó az email cim vagy a jelszó!")</script>';
             }
         }else {
-            echo '<script>alert("Nem jó a felhasználonév vagy a jelszó!")</script>';
+            echo '<script>alert("Nem jó az email cim vagy a jelszó!")</script>';
         }
     }
 

@@ -1,3 +1,22 @@
+<?php
+    require 'function.php';
+
+    if (isset($_POST['regist-btn'])) {
+        if ($_POST['regpassword'] == $_POST['regrepassword']) {
+            $name = $_POST['regname'];
+            $email =$_POST['regemail'];
+            $password = $_POST['regpassword'];
+            Reg($name, $email, $password);
+        }
+    }
+
+    if (isset($_POST['login-btn'])) {
+            $email =$_POST['email'];
+            $password = $_POST['password'];
+        Login($email, $password);
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -15,35 +34,25 @@
 
 </head>
 <body>
-    <nav class="navbar" id="nav">
-        <div class="logo"><h1>Webshop</h1></div>
-        <ul class="menu">
-            <li ><a href="index.html">Kezdolap</a></li>
-            <li><a href="">Menu 2</a></li>
-            <li><a href="">Menu 3</a></li>
-            <li><a href="">Menu 4</a></li>
-            <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
-        </ul>
-    </nav>
     <main>
         <div class="container" id="container">
             <div class="form-container sing-up">
-                <form action="" method="post">
+                <form action="account.php" method="post">
                     <h1>Regisztracio</h1>
-                    <input type="text" name="username" id="" placeholder="Felhasznalonev">
-                    <input type="text" name="" id="" placeholder="Email">
-                    <input type="password" name="" id="" placeholder="Jelszo">
-                    <input type="password" name="" id="" placeholder="Jelszo ujra">
-                    <input type="submit" value="Regisztracio">
+                    <input type="text" name="regname" placeholder="Felhasznalonev">
+                    <input type="email" name="regemail" placeholder="Email">
+                    <input type="password" name="regpassword" placeholder="Jelszo">
+                    <input type="password" name="regrepassword" placeholder="Jelszo ujra">
+                    <input type="submit" name="regist-btn" value="Regisztracio">
                 </form>
             </div>
             <div class="form-container sing-in">
                 
-                <form action="" method="post">
+                <form action="account.php" method="post">
                     <h1>Bejelentkezes</h1>
-                    <input type="email" name="email" id="" placeholder="Email">
-                    <input type="password" name="" id="" placeholder="Jelszo">
-                    <input type="submit" value="Bejelentkezes">
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="password" name="password" placeholder="Jelszo">
+                    <input type="submit" name="login-btn" value="Bejelentkezes">
                 </form>
             </div>
             <div class="toggle-container">
