@@ -24,19 +24,3 @@ loginBtn.addEventListener('click', ()=>{
 });
 //Account End
 
-
-//VasarlasNumber Start
-function Kosarba(){
-  let mostani;
-  let uj;
-  
-  if(document.getElementById("number").innerHTML === ""){
-    mostani = 0;
-  }else{
-    mostani = parseInt(document.getElementById("number").innerHTML); //Meglevo szam int-kent
-  }
-    uj = mostani+1;
-    document.getElementById("number").innerHTML = uj;
-    
-}
-//VasarlasNumber End

@@ -27,7 +27,7 @@
         }    
         echo'
                 <li><a href="logout.php">Kijelentkezes</a></li>
-                <li><a href="cart.html"><i class="fa-solid fa-cart-shopping" id="number"></i></a></li>
+                <li><a href="cart.php"><i class="fa-solid fa-cart-shopping">'.count($_SESSION['cart']).'</i></a></li>
             </ul>
         </nav>';
     }else{
@@ -46,7 +46,7 @@
         <ul class="menu">
             <li ><a href="index.php">Kezdolap</a></li>
             <li><a href="account.php">Fiok</a></li>
-            <li><a href="cart.html"><i class="fa-solid fa-cart-shopping" id="number"></i></a></li>
+            <li><a href="cart.php"><i class="fa-solid fa-cart-shopping">'.count($_SESSION['cart']).'</i></a></li>
         </ul>
     </nav>';
     }

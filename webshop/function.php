@@ -1,6 +1,10 @@
 <?php
     session_start();
 
+    if(empty($_SESSION['cart'])){
+		$_SESSION['cart'] = array();
+	}
+	
     if(!empty($_GET['cuponid'])){
         $cuponid = $_GET['cuponid'];
         $conn = new mysqli("localhost", "root", "", "webshop");
@@ -17,6 +21,14 @@
         header("Location: adminpages/felhasznalok.php");
     }
 
+    function AddCart($id){
+		array_push($_SESSION['cart'], array($id));
+        header('Location: index.php');
+	}
+
+    function RemoveCart($id){
+        unset($_SESSION['cart'][$id]);
+    }
 
     function Reg($name, $email, $password){
         $conn = new mysqli("localhost", "root", "", "webshop");
@@ -120,4 +132,6 @@
 			$conn->query("INSERT INTO cupons VALUES(id, '$kod', $ert, $hasz)");
 		}
 	}
+
+    
 ?>

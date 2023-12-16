@@ -1,9 +1,13 @@
 <?php
     require "config.php";
-
+    require "function.php";
     $lekerd="SELECT * FROM products";
     $talalt = $conn->query($lekerd);
 
+    if(isset($_POST['AddCart-btn'])){
+        $id = $_GET['id'];
+        AddCart($id);
+    }
 
 ?>
 <!DOCTYPE html>
@@ -39,15 +43,15 @@
             while ($termek = $talalt->fetch_assoc()) {
 
             ?>
-            <!-- Card start-->
+            <!-- Card start onclick="Kosarba()"-->
             <div class="card">
                 <div class="img"><img src="assets/img/products/<?=$termek['img']?>" alt=""></div>
                 <div class="title"><?=$termek['name']?></div>
                 <div class="desc"><?= $termek['size']?></div>
                 <div class="box">
                     <div class="price"><?=$termek['price']?> Ft</div>
-                    <form action="index.php" method="post">
-                        <input onclick="Kosarba()" class="btn" type="button" value="Kosarba adas">
+                    <form action="index.php?id=<?=$termek['id']?>" method="post">
+                        <input class="btn" name="AddCart-btn" type="submit" value="Kosarba adas">
                     </form>
                     
                 </div>

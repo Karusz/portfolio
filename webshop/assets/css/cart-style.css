@@ -98,13 +98,7 @@ hr{
     margin-bottom: 20px;
 }
 
-.pay main .insights li .info h3{
-    font-size: 24px;
-    font-weight: 600;
-    color: black;
-}
-
-.pay p, form, h4{
+.pay p, h4{
     margin: 5px;
 }
 
@@ -191,22 +185,23 @@ hr{
 
 .startorder{
     text-align: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 .startorder input{
     width: 30%;
     font-size: 13px;
-    color: red;
+    color: black;
+    border: none;
     padding: 10px 18px;
     font-weight: 900;
-    border: 1px solid red;
     border-radius: 20px;
 }
 
 .startorder input:hover{
     cursor: pointer;
     color: black;
+    border: none;
     background-color: red;
 }
 
