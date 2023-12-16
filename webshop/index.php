@@ -1,3 +1,11 @@
+<?php
+    require "config.php";
+
+    $lekerd="SELECT * FROM products";
+    $talalt = $conn->query($lekerd);
+
+
+?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -26,42 +34,23 @@
         <h1 class="pheading">Akcios Termekek</h1>
         <div class="products">
 
-            <!-- Card start -->
-            <div class="card">
-                <div class="img"><img src="" alt=""></div>
-                <div class="desc">DESC</div>
-                <div class="title">TITLE</div>
-                <div class="box">
-                    <div class="price">1000 Ft</div>
-                    <button class="btn">Vasarlas</button>
-                </div>
-            </div>
-            <!-- Card end -->
-            <!-- Card start -->
-            <div class="card">
-                <div class="img"><img src="" alt=""></div>
-                <div class="desc">DESC</div>
-                <div class="title">TITLE</div>
-                <div class="box">
-                    <div class="price">1000 Ft</div>
-                    <button class="btn">Vasarlas</button>
-                </div>
-            </div>
-            <!-- Card end -->
-            <!-- Card start -->
-            <div class="card">
-                <div class="img"><img src="" alt=""></div>
-                <div class="desc">DESC</div>
-                <div class="title">TITLE</div>
-                <div class="box">
-                    <div class="price">1000 Ft</div>
-                    <button class="btn">Vasarlas</button>
-                </div>
-            </div>
-            <!-- Card end -->
+            <?php
             
-            
+            while ($termek = $talalt->fetch_assoc()) {
 
+            ?>
+            <!-- Card start-->
+            <div class="card">
+                <div class="img"><img src="assets/img/products/<?=$termek['img']?>" alt=""></div>
+                <div class="title"><?=$termek['name']?></div>
+                <div class="desc"><?= $termek['size']?></div>
+                <div class="box">
+                    <div class="price"><?=$termek['price']?> Ft</div>
+                    <button onclick="Kosarba()" class="btn">Kosarba adas</button>
+                </div>
+            </div>
+            <?php } ?>
+            <!-- Card end -->
         </div>
     </section>
     

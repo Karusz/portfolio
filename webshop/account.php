@@ -34,6 +34,11 @@
 
 </head>
 <body>
+    <!-- NAVBAR -->
+    <div id=navjs>
+
+    </div>
+    <!-- NAVBAR END -->
     <main>
         <div class="container" id="container">
             <div class="form-container sing-up">
@@ -75,3 +80,6 @@
     <script src="assets/js/main.js"></script>
 </body>
 </html>
+<script>
+    $('#navjs').load('nav.php');
+</script>

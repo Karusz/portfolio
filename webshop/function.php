@@ -1,4 +1,22 @@
 <?php
+    session_start();
+
+    if(!empty($_GET['cuponid'])){
+        $cuponid = $_GET['cuponid'];
+        $conn = new mysqli("localhost", "root", "", "webshop");
+
+        $conn->query("DELETE FROM cupons WHERE id=$cuponid");
+        header("Location: adminpages/kuponok.php");
+    }
+
+    if(!empty($_GET['adminid'])){
+        $adminid = $_GET['adminid'];
+        $conn = new mysqli("localhost", "root", "", "webshop");
+
+        $conn->query("DELETE FROM admins WHERE id=$adminid");
+        header("Location: adminpages/felhasznalok.php");
+    }
+
 
     function Reg($name, $email, $password){
         $conn = new mysqli("localhost", "root", "", "webshop");
@@ -35,8 +53,10 @@
             $hash = $felhasznalo['passhash'];
             if(password_verify($password,$hash)){
 
-                //header("Location: cart.php");
-                echo '<script>alert("Siker!")</script>';
+                $_SESSION['id'] = $felhasznalo['id'];
+
+                header("Location: cart.html");
+                
 
             }else {
                 echo '<script>alert("Nem jó az email cim vagy a jelszó!")</script>';
@@ -46,4 +66,58 @@
         }
     }
 
+    function AddAdmin($name){
+        $conn = new mysqli("localhost", "root", "", "webshop");
+
+        $lekerd = "SELECT * FROM users WHERE name='$name'";
+        $talalt = $conn->query($lekerd);
+        $user = $talalt->fetch_assoc();
+
+        $lekerdadmin = "SELECT * FROM admins WHERE username='$name'";
+        $talaltadmin = $conn->query($lekerdadmin);
+        $admin = $talaltadmin->fetch_assoc();
+
+        if ($user['id'] != $admin['user_id']) {
+            $conn->query("INSERT INTO admins VALUES(id, $user[id], '$name')");
+        }
+
+    }
+
+    function ProductFeltolt($name,$meret,$ar,$file_name){
+        $conn = new mysqli("localhost", "root", "", "webshop");
+
+        $lekerd = "SELECT * FROM products WHERE name='$name'";
+        $talalt = $conn->query($lekerd);
+
+        if(mysqli_num_rows($talalt) == 0){
+
+            $conn->query("INSERT INTO products VALUES(id, '$name','$meret','$ar',0,0,0,'$file_name')");
+            echo "<script>alert('Fájl sikeresen feltöltve!')</script>";
+
+        }else{
+            echo '<script>alert("Van mar ilyen nevu termek!")</script>';
+        }
+    }
+
+
+    function AzonositoGeneralas($hossz){
+		$betuk = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$betuhosszusag = strlen($betuk);
+		$generalt_kod = "";
+		for($i = 0; $i < $hossz; $i++){
+			$generalt_kod .= $betuk[random_int(0, $betuhosszusag-1)];
+		}
+		return $generalt_kod;
+	}
+
+    function NewCupon($db, $hasz, $ert){
+		$conn = new mysqli("localhost", "root", "", "webshop");
+		for($i = 0; $i < $db; $i++){
+			$kod = AzonositoGeneralas(10);
+			while(mysqli_num_rows($kodok = $conn->query("SELECT * FROM cupons WHERE code = '$kod'")) == 1){
+				$kod = AzonositoGeneralas(10);
+			}
+			$conn->query("INSERT INTO cupons VALUES(id, '$kod', $ert, $hasz)");
+		}
+	}
 ?>
