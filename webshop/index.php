@@ -46,7 +46,10 @@
                 <div class="desc"><?= $termek['size']?></div>
                 <div class="box">
                     <div class="price"><?=$termek['price']?> Ft</div>
-                    <button onclick="Kosarba()" class="btn">Kosarba adas</button>
+                    <form action="index.php" method="post">
+                        <input onclick="Kosarba()" class="btn" type="button" value="Kosarba adas">
+                    </form>
+                    
                 </div>
             </div>
             <?php } ?>

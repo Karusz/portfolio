@@ -1,3 +1,4 @@
+
 //Nav Start
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
@@ -35,6 +36,7 @@ function Kosarba(){
     mostani = parseInt(document.getElementById("number").innerHTML); //Meglevo szam int-kent
   }
     uj = mostani+1;
-  document.getElementById("number").innerHTML = uj;
-  }
+    document.getElementById("number").innerHTML = uj;
+    
+}
 //VasarlasNumber End

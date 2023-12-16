@@ -59,7 +59,7 @@
                 $talalt = $conn->query($lekerd);
             ?>
                 <li>
-                <i class="fa-solid fa-truck fa-2xl"></i>
+                    <i class="fa-solid fa-truck fa-2xl"></i>
                     <span class="info">
                         <h3><?=mysqli_num_rows($talalt)?></h3>
                         <p>Rendeles</p>
