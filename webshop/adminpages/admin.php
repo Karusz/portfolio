@@ -17,7 +17,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/all-style.css">
     <link rel="stylesheet" href="css/admin-style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <!-- JS -->
     
@@ -55,14 +55,14 @@
                     </span>
                 </li>
             <?php
-                $lekerd = 'SELECT * FROM orders';
+                $lekerd = "SELECT * FROM admins";
                 $talalt = $conn->query($lekerd);
             ?>
                 <li>
-                    <i class="fa-solid fa-truck fa-2xl"></i>
+                    <i class="fa-solid fa-user-tie fa-2xl"></i>
                     <span class="info">
-                        <h3><?=mysqli_num_rows($talalt)?></h3>
-                        <p>Rendeles</p>
+                        <h3><?= mysqli_num_rows($talalt)?></h3>
+                        <p>Adminok</p>
                     </span>
                 </li>
             <?php
@@ -82,10 +82,44 @@
                 $talalt = $conn->query($lekerd);
             ?>
                 <li>
-                    <i class="fa-solid fa-user fa-2xl"></i>
+                    <i class="fa-solid fa-ticket-simple fa-2xl"></i>
                     <span class="info">
                         <h3><?= mysqli_num_rows($talalt)?></h3>
                         <p>Kuponok</p>
+                    </span>
+                </li>
+            <?php
+            $lekerd = 'SELECT * FROM products';
+            $talalt = $conn->query($lekerd);
+            ?>
+                <li>
+                    <i class="fa-solid fa-shop fa-2xl"></i>
+                    <span class="info">
+                        <h3><?= mysqli_num_rows($talalt)?></h3>
+                        <p>Termekek</p>
+                    </span>
+                </li>
+
+            <?php
+                $lekerd = 'SELECT * FROM orders';
+                $talalt = $conn->query($lekerd);
+            ?>
+                <li>
+                    <i class="fa-solid fa-truck fa-2xl"></i>
+                    <span class="info">
+                        <h3><?=mysqli_num_rows($talalt)?></h3>
+                        <p>Rendeles</p>
+                    </span>
+                </li>    
+            <?php
+                $lekerd = 'SELECT * FROM orders WHERE status="pending"';
+                $talalt = $conn->query($lekerd);
+            ?>
+                <li>
+                    <i class="fa-solid fa-clock fa-2xl"></i>
+                    <span class="info">
+                        <h3><?= mysqli_num_rows($talalt)?></h3>
+                        <p>Folyamatban levo rendelesek</p>
                     </span>
                 </li>
             <?php
@@ -100,14 +134,14 @@
                     </span>
                 </li>
             <?php
-            $lekerd = 'SELECT * FROM products';
-            $talalt = $conn->query($lekerd);
+                $lekerd = 'SELECT * FROM orders WHERE status="failed"';
+                $talalt = $conn->query($lekerd);
             ?>
                 <li>
-                    <i class="fa-solid fa-shop"></i>
+                    <i class="fa-solid fa-xmark fa-2xl"></i>
                     <span class="info">
                         <h3><?= mysqli_num_rows($talalt)?></h3>
-                        <p>Termekek</p>
+                        <p>Sikertelen rendelesek</p>
                     </span>
                 </li>
             </ul>
@@ -121,7 +155,8 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Felhasznalo</th>
+                                <th>Nev</th>
+                                <th>Email</th>
                                 <th>Rendeles Datuma</th>
                                 <th>Statusz</th>
                             </tr>
@@ -133,9 +168,8 @@
                             while($rendeles = $talalt->fetch_assoc()){
                         ?>
                             <tr>
-                                <td>
-                                    <p><?= $rendeles['user_name']?></p>
-                                </td>
+                                <td><?= $rendeles['order_name']?></td>
+                                <td><?= $rendeles['order_email']?></td>
                                 <td><?=$rendeles['date']?></td>
                                 <td><span class="status <?=$rendeles['status']?>"><?=$rendeles['status']?></span></td>
                             </tr>

@@ -113,7 +113,7 @@
                                 <td></td>
                                 <td><?=$termek['id']?></td>
                                 <td><?=$termek['name']?></td>
-                                <td><?=$termek['size']?></td>
+                                <td><?=$termek['sizes']?></td>
                                 <td><?=$termek['price']?> Ft</td>
                                 <td><?php if($termek['sale_price']==0){echo 'Nem';}else{echo'Igen';}?></td>
                                 <td><?=$termek['on_sale']?></td>

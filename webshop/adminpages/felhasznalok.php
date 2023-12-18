@@ -112,8 +112,6 @@
                                 <th>ID</th>
                                 <th>Nev</th>
                                 <th>Email</th>
-                                <th>Cim</th>
-                                <th>Telefonszam</th>
                             </tr>
                         </thead>
                         <tbody class="prodinp">
@@ -127,8 +125,6 @@
                                 <td><?=$user['id']?></td>
                                 <td><?=$user['name']?></td>
                                 <td><?=$user['email']?></td>
-                                <td><?=$user['address']?></td>
-                                <td><?=$user['tel']?></td>
                             </tr>
                             <?php } ?>
                         </tbody>

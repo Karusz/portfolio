@@ -47,7 +47,7 @@
             <div class="card">
                 <div class="img"><img src="assets/img/products/<?=$termek['img']?>" alt=""></div>
                 <div class="title"><?=$termek['name']?></div>
-                <div class="desc"><?= $termek['size']?></div>
+                <div class="desc"><?= $termek['sizes']?></div>
                 <div class="box">
                     <div class="price"><?=$termek['price']?> Ft</div>
                     <form action="index.php?id=<?=$termek['id']?>" method="post">

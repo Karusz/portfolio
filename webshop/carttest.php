@@ -54,8 +54,8 @@
                 $uzenetafutarnak = '';
 
             }
-            echo 'leadva cash';
-            NewOrder($fizetes, $telefon, $email, $vnev, $knev, $utca, $hazsz, $iranyitosz, $varos, $emelet, $csengo, $lepcsohaz, $uzenetafutarnak);
+            echo 'leadva';
+            //NewOrder($fizetes, $telefon, $email, $vnev, $knev, $utca, $hazsz, $iranyitosz, $varos, $emelet, $csengo, $lepcsohaz, $uzenetafutarnak);
 
         }
 
@@ -105,8 +105,8 @@
                 $uzenetafutarnak = '';
 
             }
-            echo 'leadva card';
-            NewOrder($fizetes, $telefon, $email, $vnev, $knev, $utca, $hazsz, $iranyitosz, $varos, $emelet, $csengo, $lepcsohaz, $uzenetafutarnak);
+            echo 'leadva';
+            //NewOrder($fizetes, $telefon, $email, $vnev, $knev, $utca, $hazsz, $iranyitosz, $varos, $emelet, $csengo, $lepcsohaz, $uzenetafutarnak);
 
         }
 
@@ -167,7 +167,9 @@
         
             <div onclick="Cardpay()" class="cardpay" id="cardpay">
                 <span class="info">
-                    <input type="checkbox" name="cardpay-check" id="cardpay-check" hidden>
+
+                        <input type="checkbox" name="cardpay-check" id="cardpay-check" hidden>
+
                     <i class="fa-regular fa-credit-card fa-2xl"></i>
                     <h4>Elore utalas ( 0Ft )</h4>
                     <p>Elore utalas eseten csak bankartyaval tudsz fizetni.</p>
@@ -175,7 +177,9 @@
             </div>
             <div onclick="Cashpay()" class="cashpay" id="cashpay">
                 <span class="info">
-                    <input type="checkbox" name="cashpay-check" id="cashpay-check" hidden>
+                    <form action="cart.php" method="post">
+                        <input type="checkbox" name="cashpay-check" id="cashpay-check" hidden>
+                    </form>
                     <i class="fa-solid fa-wallet fa-2xl"></i>
                     <h4>Fizetes atvetelkor ( +200Ft )</h4>
                     <p>Atvetelkor bankartyaval illetve kezpenzel is tudsz fizetni. </p>
@@ -187,7 +191,7 @@
     <div class="userdata">
         
         <div class="user-container">
-            <form action="cart.php" method="post">
+            <form action="carttest.php" method="post">
                 <div class="row">
                     <input type="text" name="telefon" placeholder="Telefonszam">
                     <input type="email" name="email" placeholder="Email">

@@ -36,14 +36,15 @@
 		if (count($_SESSION['cart']) != 0) {
             $date = date("Y-m-d H:i:s");
 			$termekek = "";
-			$paycount = 0;
+            $paycount = 0;
+			$payprice = 0;
             $address = $iranyitosz." ".$varos." ".$utca." ".$hazsz." ".$emelet." ".$csengo." ".$lepcsohaz;
-
+            $order_name = $vnev." ".$knev;
             //utanvetel fizetes
             if ($pay == 'utanvetel') {
-                $paycount +=200;
+                $payprice +=200;
             }
-
+            $paycount += $payprice;
 
 
 			foreach ($_SESSION['cart'] as $csomag) {
@@ -56,15 +57,19 @@
 				}else{
 					$paycount += $termek['sale_price']*$csomag[0];
 				}
-				$termekek .= $csomag[0]."-".$csomag[1].";";
+                $termekek .= $csomag[0]."-".$csomag[1].";";
+                
+				
 			}
 
 			$azonosito = AzonositoGeneralas(5);
-			while(mysqli_num_rows($kodok = $conn->query("SELECT * FROM orders WHERE azonosito='$azonosito'")) == 1){
+			while(mysqli_num_rows($kodok = $conn->query("SELECT * FROM orders WHERE code='$azonosito'")) == 1){
 				$azonosito = AzonositoGeneralas(5);
 			}
+            $conn->query("INSERT INTO checks VALUES(id, '$azonosito', '$termekek','$payprice','$paycount')");
+            
+			$conn->query("INSERT INTO orders VALUES(id,'$azonosito','$termekek','$email','$telefon','$order_name','$address','$uzenetafutarnak','$pay','$paycount','$date','pending')");
 
-			$conn->query("INSERT INTO orders VALUES(id,'$termekek','$email','$telefon','$address','$uzenetafutarnak','$pay','$paycount','$date','pending')");
 
 			echo "<script>alert('A rendelésed azonosítúja: $azonosito')</script>";
 			$_SESSION['cart'] = array();
@@ -88,7 +93,7 @@
             $talalt = $conn->query($lekerd);
 
             if (mysqli_num_rows($talalt) == 0) {
-                $conn->query("INSERT INTO users VALUES(id, '$name', '$email', '$hashcode','','')");
+                $conn->query("INSERT INTO users VALUES(id, '$name', '$email', '$hashcode')");
             }else {
                 echo '<script>alert("Van már ilyen felhasznalonev!")</script>';
             }
@@ -111,7 +116,7 @@
 
                 $_SESSION['id'] = $felhasznalo['id'];
 
-                header("Location: cart.html");
+                header("Location: cart.php");
                 
 
             }else {
@@ -133,8 +138,10 @@
         $talaltadmin = $conn->query($lekerdadmin);
         $admin = $talaltadmin->fetch_assoc();
 
-        if ($user['id'] != $admin['user_id']) {
+        if (empty($admin['user_id'])) {
             $conn->query("INSERT INTO admins VALUES(id, $user[id], '$name')");
+        }else{
+            echo '<script>alert("mar admin a felhasznalo!")</script>';
         }
 
     }

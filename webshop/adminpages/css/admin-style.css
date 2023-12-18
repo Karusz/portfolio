@@ -14,7 +14,7 @@ li{
 }
 
 .sidebar{
-    box-shadow: 0 0 14px rgba(255, 0, 0, 0.89);;
+    box-shadow: 0 0 14px rgba(255, 0, 0, 0.89);
     background-color: black;
     position: fixed;
     top: 0;
@@ -136,12 +136,11 @@ li{
 .content main .insights li{
     padding: 24px;
     background: white;
-    box-shadow: 0 0 14px rgba(0, 0, 0, 0.658);
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.925);
     border-radius: 20px;
     display: flex;
     align-items: center;
     grid-gap: 24px;
-    cursor: pointer;
 }
 
 .content main .insights li .info h3{
@@ -180,10 +179,6 @@ li{
     font-weight: 600;
 }
 
-.content main .bottom-data .header .bx{
-    cursor: pointer;
-}
-
 .content main .bottom-data .orders{
     flex-grow: 1;
     flex-basis: 500px;
@@ -199,10 +194,12 @@ li{
     font-size: 13px;
     text-align: left;
     border-bottom: 1px solid black;
+    text-align: center;
 }
 
 .content main .bottom-data .orders table td{
     padding: 16px 0;
+    text-align: center;
 }
 
 .content main .bottom-data .orders table tr td:first-child{
@@ -210,18 +207,6 @@ li{
     align-items: center;
     grid-gap: 12px;
     padding-left: 6px;
-}
-
-.content main .bottom-data .orders table td img{
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.content main .bottom-data .orders table tbody tr{
-    cursor: pointer;
-    transition: all 0.3s ease;
 }
 
 .content main .bottom-data .orders table tr td .status{
@@ -242,6 +227,9 @@ li{
 
 .content main .bottom-data .orders table tr td .status.pending{
     background: orange;
+}
+.content main .bottom-data .orders table tr td .status.failed{
+    background: red;
 }
 
 /* FORM START */
