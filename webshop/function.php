@@ -29,6 +29,50 @@
     function RemoveCart($id){
         unset($_SESSION['cart'][$id]);
     }
+    
+    function NewOrder($pay, $telefon, $email, $vnev, $knev, $utca, $hazsz, $iranyitosz, $varos, $emelet, $csengo, $lepcsohaz, $uzenetafutarnak){
+        $conn = new mysqli("localhost", "root", "", "webshop");
+
+		if (count($_SESSION['cart']) != 0) {
+            $date = date("Y-m-d H:i:s");
+			$termekek = "";
+			$paycount = 0;
+            $address = $iranyitosz." ".$varos." ".$utca." ".$hazsz." ".$emelet." ".$csengo." ".$lepcsohaz;
+
+            //utanvetel fizetes
+            if ($pay == 'utanvetel') {
+                $paycount +=200;
+            }
+
+
+
+			foreach ($_SESSION['cart'] as $csomag) {
+				$lekerd = "SELECT * FROM products WHERE id=$csomag[0]";
+				$talalt = $conn->query($lekerd);
+				$termek = $talalt->fetch_assoc();
+
+				if ($termek['on_sale'] == 0) {
+					$paycount += $termek['price']*$csomag[0];
+				}else{
+					$paycount += $termek['sale_price']*$csomag[0];
+				}
+				$termekek .= $csomag[0]."-".$csomag[1].";";
+			}
+
+			$azonosito = AzonositoGeneralas(5);
+			while(mysqli_num_rows($kodok = $conn->query("SELECT * FROM orders WHERE azonosito='$azonosito'")) == 1){
+				$azonosito = AzonositoGeneralas(5);
+			}
+
+			$conn->query("INSERT INTO orders VALUES(id,'$termekek','$email','$telefon','$address','$uzenetafutarnak','$pay','$paycount','$date','pending')");
+
+			echo "<script>alert('A rendelésed azonosítúja: $azonosito')</script>";
+			$_SESSION['cart'] = array();
+
+		}else{
+			echo "<script>alert('Üres a kosarad!')</script>";
+		}
+    }
 
     function Reg($name, $email, $password){
         $conn = new mysqli("localhost", "root", "", "webshop");

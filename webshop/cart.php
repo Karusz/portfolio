@@ -8,41 +8,112 @@
 
     if (isset($_POST['order-btn'])) {
         if($_POST['cashpay-check']){
-            $fizetes = $_POST['cashpay-check'];
+
+            $fizetes = 'utanvetel';
+            $telefon = $_POST['telefon'];
+            $email = $_POST['email'];
+            $vnev = $_POST['vnev'];
+            $knev = $_POST['knev'];
+            $utca = $_POST['utca'];
+            $hazsz = $_POST['hazszam'];
+            $iranyitosz = $_POST['iranyitoszam'];
+            $varos = $_POST['varos'];
+            if (!empty($_POST['emelet'])) {
+
+                $emelet = $_POST['emelet'];
+
+            }else {
+
+                $emelet = '';
+
+            }
+            if (!empty($_POST['csengo'])) {
+
+                $csengo = $_POST['csengo'];
+
+            }else {
+
+                $csengo = '';
+
+            }
+            if (!empty($_POST['lepcsohaz'])) {
+
+                $lepcsohaz = $_POST['lepcsohaz'];
+
+            }else {
+
+                $lepcsohaz = '';
+
+            }
+            if (!empty($_POST['uzenetafutarnak'])) {
+
+                $uzenetafutarnak = $_POST['uzenetafutarnak'];
+
+            }else {
+
+                $uzenetafutarnak = '';
+
+            }
+            echo 'leadva';
+            //NewOrder($fizetes, $telefon, $email, $vnev, $knev, $utca, $hazsz, $iranyitosz, $varos, $emelet, $csengo, $lepcsohaz, $uzenetafutarnak);
+
         }elseif ($_POST['cardpay-check']) {
-            $fizetes = $_POST['cardpay-check'];
+
+            $fizetes = 'Kartya';
+            $telefon = $_POST['telefon'];
+            $email = $_POST['email'];
+            $vnev = $_POST['vnev'];
+            $knev = $_POST['knev'];
+            $utca = $_POST['utca'];
+            $hazsz = $_POST['hazszam'];
+            $iranyitosz = $_POST['iranyitoszam'];
+            $varos = $_POST['varos'];
+            if (!empty($_POST['emelet'])) {
+
+                $emelet = $_POST['emelet'];
+
+            }else {
+
+                $emelet = '';
+
+            }
+            if (!empty($_POST['csengo'])) {
+
+                $csengo = $_POST['csengo'];
+
+            }else {
+
+                $csengo = '';
+
+            }
+            if (!empty($_POST['lepcsohaz'])) {
+
+                $lepcsohaz = $_POST['lepcsohaz'];
+
+            }else {
+
+                $lepcsohaz = '';
+
+            }
+            if (!empty($_POST['uzenetafutarnak'])) {
+
+                $uzenetafutarnak = $_POST['uzenetafutarnak'];
+
+            }else {
+
+                $uzenetafutarnak = '';
+
+            }
+            echo 'leadva';
+            NewOrder($fizetes, $telefon, $email, $vnev, $knev, $utca, $hazsz, $iranyitosz, $varos, $emelet, $csengo, $lepcsohaz, $uzenetafutarnak);
+
         }else{
+
             echo '<script>alert("Nem valasztottal fizetesi modot!")</script>';
+            
         }
-        $telefon = $_POST['telefon'];
-        $email = $_POST['email'];
-        $vnev = $_POST['vnev'];
-        $knev = $_POST['knev'];
-        $utca = $_POST['utca'];
-        $hazsz = $_POST['hazszam'];
-        $iranyitosz = $_POST['iranyitoszam'];
-        $varos = $_POST['varos'];
-        if (!empty($_POST['emelet'])) {
-            $emelet = $_POST['emelet'];
-        }else {
-            $emelet = '';
-        }
-        if (!empty($_POST['csengo'])) {
-            $csengo = $_POST['csengo'];
-        }else {
-            $csengo = '';
-        }
-        if (!empty($_POST['lepcsohaz'])) {
-            $lepcsohaz = $_POST['lepcsohaz'];
-        }else {
-            $lepcsohaz = '';
-        }
-        if (!empty($_POST['uzenetafutarnak'])) {
-            $uzenetafutarnak = $_POST['uzenetafutarnak'];
-        }else {
-            $uzenetafutarnak = '';
-        }
-        NewOrder($fizetes, $telefon, $email, $vnev, $knev, $utca, $hazsz, $iranyitosz, $varos, $emelet, $csengo, $lepcsohaz, $uzenetafutarnak);
+
+        
     }
 
 ?>
@@ -102,9 +173,9 @@
         
             <div onclick="Cardpay()" class="cardpay" id="cardpay">
                 <span class="info">
-                    <form action="cart.php" method="post">
+
                         <input type="checkbox" name="cardpay-check" id="cardpay-check">
-                    </form>
+
                     <i class="fa-regular fa-credit-card fa-2xl"></i>
                     <h4>Elore utalas ( 0Ft )</h4>
                     <p>Elore utalas eseten csak bankartyaval tudsz fizetni.</p>
@@ -164,48 +235,42 @@
 </html>
 <script>
 //Pay kivalasztasa start
+var cb_cash = document.getElementById('cashpay-check');//utanvetel
+var cb_card = document.getElementById('cardpay-check');
 
-
-//!!!!!!!!!!!!!!!!!!!!!MEGNEZNI, MERT NEM JO!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-var kijelolt ='';
 function Cardpay(){
-    if(!document.getElementById('cardpay').style.border || document.getElementById('cardpay').style.border === 'none'){
-        if(kijelolt != 'cashpay'){
-            kijelolt = 'cardpay';
-            document.getElementById('cardpay').style.border = "1px solid red";
-            document.getElementById('cardpay-chech').checked = true;
-        }else{
-            document.getElementById('cashpay').style.border = "none";
-            document.getElementById('cashpay-check').checked = false;
-            document.getElementById('cardpay').style.border = "1px solid red";
-            document.getElementById('cardpay-chech').checked = true;
-            kijelolt = 'cardpay';
+    if (!cb_cash.checked) { //Ha nincs kijelolve a kezpenzes fizetes
+        if (!cb_card.checked) { //Ha nincs kijelolve a kartyas fizetes
+            document.getElementById('cardpay').style.border = "1px solid blue"; //Akkor a kartyas fizetes legyen kijelolve
+            cb_card.checked = true; //Jelolje be a kartyas fizetes checkbox-ot
+            document.getElementById('cardpay').class
+            
+        }else{ //Ha kivan
+            document.getElementById('cardpay').style.border = "none"; //Akkor a kartyas fizetes legyen kijelolve
+            cb_card.checked = false; //Jelolje be a kartyas fizetes checkbox-ot
         }
-    }else{
-        document.getElementById('cardpay').style.border = "none";
-        document.getElementById('cardpay-chech').checked = false;
-        kijelolt = 'cashpay';
+    }else{//Ha ki van jelolve a kezpenzes fizetes
+            document.getElementById('cashpay').style.border = "none"; 
+            cb_cash.checked = false;
+            document.getElementById('cardpay').style.border = "1px solid blue"; 
+            cb_card.checked = true;
     }
 }
 
-function Cashpay(){
-    if(!document.getElementById('cashpay').style.border || document.getElementById('cashpay').style.border === 'none'){
-        if(kijelolt !== 'cardpay'){
-            kijelolt = 'cashpay';
-            document.getElementById('cashpay').style.border = "1px solid red";
-            document.getElementById('cashpay-check').checked = true;
-        }else{
-            document.getElementById('cardpay').style.border = "none";
-            document.getElementById('cashpay').style.border = "1px solid red";
-            document.getElementById('cashpay-chech').checked = true;
-            kijelolt = 'cashpay';
+function Cashpay(){//Eloreutalas
+    if (!cb_card.checked) { //Ha nincs kijelolve a kartyas fizetes
+        if (!cb_cash.checked) { //Ha nincs kijelolve a kezpenzes fizetes
+            document.getElementById('cashpay').style.border = "1px solid blue"; //Akkor a kartyas fizetes legyen kijelolve
+            cb_cash.checked = true; //Jelolje be a kartyas fizetes checkbox-ot
+        }else{ //Ha kivan
+            document.getElementById('cashpay').style.border = "none"; //Akkor a kartyas fizetes legyen kijelolve
+            cb_cash.checked = false; //Jelolje be a kartyas fizetes checkbox-ot
         }
-    }else{
-        document.getElementById('cashpay').style.border = "none";
-        document.getElementById('cashpay-check').checked = false;
-        kijelolt = 'cardpay';
+    }else{//Ha ki van jelolve a kartyas fizetes
+            document.getElementById('cashpay').style.border = "1px solid blue"; 
+            cb_cash.checked = true;
+            document.getElementById('cardpay').style.border = "none"; 
+            cb_card.checked = false;
     }
 }
 //Pay kivalasztasa end
