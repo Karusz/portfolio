@@ -21,7 +21,7 @@
         header("Location: adminpages/felhasznalok.php");
     }
 
-    function AddCart($id){
+    function AddCart($id){//Ha ugyan az az id, akkor csak novelje meg a db szamot
 		array_push($_SESSION['cart'], array($id));
         header('Location: index.php');
 	}

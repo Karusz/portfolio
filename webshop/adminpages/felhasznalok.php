@@ -64,36 +64,6 @@
                     </table>
                 </div>
             </div>
-            <div class="bottom-data">
-                <div class="orders">
-                    <div class="header">
-                        <i class='bx bx-receipt'></i>
-                        <h3>Adminok</h3>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nev</th>
-                                <th>Torles</th>
-                            </tr>
-                        </thead>
-                        <tbody class="prodinp">
-                            <?php
-                                $lekerd = "SELECT * FROM admins";
-                                $talalt = $conn->query($lekerd);
-                                while($admin = $talalt->fetch_assoc()){
-                            ?>
-                            <tr>
-                                <td><?=$admin['user_id']?></td>
-                                <td><?=$admin['username']?></td>
-                                <td><a href="../function.php?adminid=<?=$admin['user_id']?>"><button class="submitbtn">Torles</button></a></td>
-                            </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
             <br><br>
             <div class="header">
                 <div class="left">
@@ -109,22 +79,29 @@
                     <table>
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>ID</th>
                                 <th>Nev</th>
                                 <th>Email</th>
+                                <th>Admin-e</th>
                             </tr>
                         </thead>
                         <tbody class="prodinp">
-                            <?php 
+                            <?php
                                 $lekerd = "SELECT * FROM users";
                                 $talalt = $conn->query($lekerd);
                                 //Ha admin, akkor ne jelenjen meg
                                 while($user = $talalt->fetch_assoc()){
+                                    $adminlekerd = "SELECT * FROM admins WHERE username='$user[name]'";
+                                    $talaltadmin = $conn->query($adminlekerd);
+                                    $admin = $talaltadmin->fetch_assoc();
                             ?>
                             <tr>
+                                <td></td>
                                 <td><?=$user['id']?></td>
                                 <td><?=$user['name']?></td>
                                 <td><?=$user['email']?></td>
+                                <td><?php if($admin['id'] == $user['id']){ echo 'Igen';} else{echo 'Nem';} ?></td>
                             </tr>
                             <?php } ?>
                         </tbody>

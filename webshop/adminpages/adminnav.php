@@ -10,7 +10,7 @@ echo '<div class="sidebar">
                     <h4>Kezdolap</h4>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="admin.php">
                     <i class="fa-solid fa-chart-line"></i>
                     <h4>Analizis</h4>
@@ -57,4 +57,6 @@ echo '<div class="sidebar">
             </li>
         </ul>
     </div>';
+    
 ?>
+

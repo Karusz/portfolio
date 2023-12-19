@@ -203,6 +203,7 @@ li{
 }
 
 .content main .bottom-data .orders table tr td:first-child{
+    text-align: center;
     display: flex;
     align-items: center;
     grid-gap: 12px;
@@ -210,6 +211,7 @@ li{
 }
 
 .content main .bottom-data .orders table tr td .status{
+    text-align: center;
     font-size: 10px;
     padding: 6px 16px;
     color: white;
@@ -230,6 +232,26 @@ li{
 }
 .content main .bottom-data .orders table tr td .status.failed{
     background: red;
+}
+
+.completed{
+    font-weight: 600;
+    color: green;
+}
+
+.process{
+    font-weight: 600;
+    color: blue;
+}
+
+.pending{
+    font-weight: 600;
+    color: orange;
+}
+
+.failed{
+    font-weight: 600;
+    color: red;
 }
 
 /* FORM START */
@@ -280,3 +302,14 @@ td input[type="file"] {
     color: rgba(255, 0, 0, 0.863);
 }
 /* FROM END */
+
+/* SELECT START */
+
+select{
+    border: black solid 2px;
+    margin: 5px;
+    height: 26px;
+    border-radius: 8px;
+}
+
+/* SELECT END */

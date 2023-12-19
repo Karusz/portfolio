@@ -1,11 +1,12 @@
 <?php
     require '../config.php';
     session_start();
-
+    $current_page = $_SERVER['SCRIPT_NAME'];
     $userid = $_SESSION['id'];
     $lekerd = 'SELECT * FROM users WHERE id='.$userid;
     $talalt = $conn->query($lekerd);
     $admin = $talalt->fetch_assoc();
+
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -55,8 +56,9 @@
                     </span>
                 </li>
             <?php
-                $lekerd = "SELECT * FROM admins";
+                $lekerd = 'SELECT * FROM admins';
                 $talalt = $conn->query($lekerd);
+                $sum = mysqli_fetch_array($talalt)
             ?>
                 <li>
                     <i class="fa-solid fa-user-tie fa-2xl"></i>
@@ -64,17 +66,17 @@
                         <h3><?= mysqli_num_rows($talalt)?></h3>
                         <p>Adminok</p>
                     </span>
-                </li>
+                </li>    
             <?php
                 $lekerd = 'SELECT SUM(price) FROM checks';
                 $talalt = $conn->query($lekerd);
                 $sum = mysqli_fetch_array($talalt)
             ?>
                 <li>
-                    <i class="fa-duotone fa-dollar-sign fa-2xl"></i>
+                    <i class="fa-solid fa-hand-holding-dollar fa-2xl"></i>
                     <span class="info">
                         <h3><?php if($sum['SUM(price)'] == 0){ echo'0';}else{echo $sum['SUM(price)']; }?> Ft</h3>
-                        <p>Ossz eladas</p>
+                        <p>Bevetel</p>
                     </span>
                 </li>
             <?php
@@ -85,7 +87,7 @@
                     <i class="fa-solid fa-ticket-simple fa-2xl"></i>
                     <span class="info">
                         <h3><?= mysqli_num_rows($talalt)?></h3>
-                        <p>Kuponok</p>
+                        <p>Aktiv Kuponok</p>
                     </span>
                 </li>
             <?php
@@ -96,30 +98,29 @@
                     <i class="fa-solid fa-shop fa-2xl"></i>
                     <span class="info">
                         <h3><?= mysqli_num_rows($talalt)?></h3>
-                        <p>Termekek</p>
+                        <p>Osszes Termek</p>
                     </span>
-                </li>
-
+                </li> 
             <?php
-                $lekerd = 'SELECT * FROM orders';
+                $lekerd = 'SELECT * FROM orders WHERE status="pending"';
                 $talalt = $conn->query($lekerd);
             ?>
                 <li>
-                    <i class="fa-solid fa-truck fa-2xl"></i>
+                    <i class="fa-solid fa-box-open fa-2xl"></i>
                     <span class="info">
-                        <h3><?=mysqli_num_rows($talalt)?></h3>
-                        <p>Rendeles</p>
+                        <h3><?= mysqli_num_rows($talalt)?></h3>
+                        <p>Osszeallitasban levo rendelesek</p>
                     </span>
-                </li>    
+                </li>
             <?php
-                $lekerd = 'SELECT * FROM orders WHERE status="pending"';
+                $lekerd = 'SELECT * FROM orders WHERE status="process"';
                 $talalt = $conn->query($lekerd);
             ?>
                 <li>
                     <i class="fa-solid fa-clock fa-2xl"></i>
                     <span class="info">
                         <h3><?= mysqli_num_rows($talalt)?></h3>
-                        <p>Folyamatban levo rendelesek</p>
+                        <p>Kiszallitas alatt levo rendelesek</p>
                     </span>
                 </li>
             <?php
@@ -171,7 +172,27 @@
                                 <td><?= $rendeles['order_name']?></td>
                                 <td><?= $rendeles['order_email']?></td>
                                 <td><?=$rendeles['date']?></td>
-                                <td><span class="status <?=$rendeles['status']?>"><?=$rendeles['status']?></span></td>
+                                <td><span class="status <?=$rendeles['status']?>"><?php
+                                switch ($rendeles['status']) {
+                                    case 'pending':
+                                        echo 'Feldolgozas';
+                                        break;
+                                
+                                    case 'process':
+                                        echo 'Kiszallitas';
+                                        break;
+
+                                    case 'completed':
+                                        echo 'Kiszallitva';
+                                        break;
+
+                                    case 'failed':
+                                        echo 'Hiba tortent';
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            ?></span></td>
                             </tr>
                             <?php } ?>
                         </tbody>
@@ -184,4 +205,5 @@
 </html>
 <script>
     $('#adminnav').load('adminnav.php');
+    
 </script>

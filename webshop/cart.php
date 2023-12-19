@@ -146,12 +146,20 @@
         <div class="card">
             <div class="img"><img src="assets/img/products/<?=$termek['img']?>" alt=""></div>
             <div class="title"><?=$termek['name']?></div>
-            <div class="desc"><select name="" id="">
-                <option value="">Meret</option>
-                <option value="1">asd</option>
-            </select></div>
+            <div class="desc">
+                <select name="" id=""><!-- Valassza ki melyik meret -->
+                    <option value="">Meret</option>
+                    <option value="1">asd</option>
+                </select>
+            </div>
+            <div class="desc">
+                <select name="" id=""><!-- Valassza ki a db szamot -->
+                    <option value="">Darab</option>
+                    <option value="1">asd</option>
+                </select>
+            </div>
             <div class="box">
-                <div class="price">Ertek Ft</div>
+                <div class="price"><?= $termek['price']?> Ft</div>
                 <form action="cart.php?removeid=<?= array_search($csomag, $_SESSION['cart'])?>" method="post">
                         <input class="btn" name="removecart-btn" type="submit" value="Eltavolitas">
                     </form>
