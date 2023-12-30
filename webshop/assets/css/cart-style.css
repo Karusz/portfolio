@@ -149,6 +149,10 @@ hr{
     margin: 20px;
 }
 
+.user-container form{
+    width: 95%;
+}
+
 .row {
     display: flex;
     width: 100%;

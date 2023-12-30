@@ -54,7 +54,7 @@
                             <tr>
                                 <th></th>
                                 <th>Nev</th>
-                                <th>Meretek</th>
+                                <th>Kategoria</th>
                                 <th>Ar</th>
                                 <th>Akcios Ar</th>
                                 <th>Akcios</th>
@@ -64,7 +64,7 @@
                             <tr>
                                 <td></td>
                                 <td><?=$termek['name']?></td>
-                                <td><?=$termek['sizes']?></td>
+                                <td><?=$termek['category']?></td>
                                 <td><?=$termek['price']?> Ft</td>
                                 <td><?=$termek['sale_price']?> Ft</td>
                                 <td><?php if($termek['on_sale']==0){echo 'Nem';}else{echo 'Igen';} ?></td>

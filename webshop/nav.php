@@ -21,7 +21,8 @@
             
         <!-- SIDENAV END -->
         <ul class="menu">
-            <li ><a href="index.php">Kezdolap</a></li>';
+            <li ><a href="index.php">Kezdolap</a></li>
+            <li><a href="allproducts.php">Termekek</a></li>';
         if(mysqli_num_rows($talalt) == 1){
             echo '<li><a href="adminpages/admin.php">Admin</a></li>';
         }    
@@ -44,12 +45,14 @@
         <span style="font-size:30px; color: red;">Webshop</span>
         <!-- SIDENAV END -->
         <ul class="menu">
-            <li ><a href="index.php">Kezdolap</a></li>
+            <li><a href="index.php">Kezdolap</a></li>
+            <li><a href="allproducts.php">Termekek</a></li>
             <li><a href="account.php">Fiok</a></li>
             <li><a href="cart.php"><i class="fa-solid fa-cart-shopping">'.count($_SESSION['cart']).'</i></a></li>
         </ul>
     </nav>';
     }
+    
     
     
     

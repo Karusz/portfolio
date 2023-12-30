@@ -146,15 +146,15 @@
 
     }
 
-    function ProductFeltolt($name,$meret,$ar,$file_name){
+    function ProductFeltolt($name,$category,$ar,$file_name){
         $conn = new mysqli("localhost", "root", "", "webshop");
 
-        $lekerd = "SELECT * FROM products WHERE name='$name'";
+        $lekerd = "SELECT * FROM products WHERE name='$name' AND category='$category'";
         $talalt = $conn->query($lekerd);
 
         if(mysqli_num_rows($talalt) == 0){
 
-            $conn->query("INSERT INTO products VALUES(id, '$name','$meret','$ar',0,0,0,'$file_name')");
+            $conn->query("INSERT INTO products VALUES(id, '$name','$category','$ar',0,0,0,'$category/$file_name')");
             echo "<script>alert('Fájl sikeresen feltöltve!')</script>";
 
         }else{

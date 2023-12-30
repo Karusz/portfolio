@@ -2,7 +2,6 @@
     require "config.php";
     require "function.php";
 
-    
 
     if (isset($_POST['removecart-btn'])) {
         RemoveCart($_GET['removeid']);
@@ -147,16 +146,15 @@
             <div class="img"><img src="assets/img/products/<?=$termek['img']?>" alt=""></div>
             <div class="title"><?=$termek['name']?></div>
             <div class="desc">
-                <select name="" id=""><!-- Valassza ki melyik meret -->
-                    <option value="">Meret</option>
-                    <option value="1">asd</option>
-                </select>
-            </div>
-            <div class="desc">
-                <select name="" id=""><!-- Valassza ki a db szamot -->
-                    <option value="">Darab</option>
-                    <option value="1">asd</option>
-                </select>
+                <p>Darabszam</p>
+                <form action="" method="post">
+                    <select name="db" id="db"><!-- PHPBAN MEGCSINALNI-->
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </form>
             </div>
             <div class="box">
                 <div class="price"><?= $termek['price']?> Ft</div>
@@ -217,8 +215,8 @@
                     <textarea name="uzenet" placeholder="Uzenet a futarnak"></textarea>
                 </div>
                 <div class="startorder">
-                    <input type="submit" name="cardpay-btn" value="card Megrendelem!" id="cardpay-btn">
-                    <input type="submit" name="cashpay-btn" value="cash Megrendelem!" id="cashpay-btn">
+                    <input type="submit" name="cardpay-btn" value="Megrendelem!" id="cardpay-btn">
+                    <input type="submit" name="cashpay-btn" value="Megrendelem!" id="cashpay-btn">
                 </div>
             </form>
         </div>
@@ -242,7 +240,7 @@ var cb_card = document.getElementById('cardpay-check');
 function Cardpay(){
     if (!cb_cash.checked) { //Ha nincs kijelolve a kezpenzes fizetes
         if (!cb_card.checked) { //Ha nincs kijelolve a kartyas fizetes
-            document.getElementById('cardpay').style.border = "1px solid blue"; //Akkor a kartyas fizetes legyen kijelolve
+            document.getElementById('cardpay').style.border = "1px solid red"; //Akkor a kartyas fizetes legyen kijelolve
             cb_card.checked = true; //Jelolje be a kartyas fizetes checkbox-ot
             document.getElementById('cardpay-btn').style.display = 'inline';
             
@@ -255,7 +253,7 @@ function Cardpay(){
             document.getElementById('cashpay').style.border = "none"; 
             document.getElementById('cardpay-btn').style.display = 'none';
             cb_cash.checked = false;
-            document.getElementById('cardpay').style.border = "1px solid blue"; 
+            document.getElementById('cardpay').style.border = "1px solid red"; 
             document.getElementById('cardpay-btn').style.display = 'inline';
             cb_card.checked = true;
     }
@@ -271,7 +269,7 @@ function Cardpay(){
 function Cashpay(){//kezpenz
     if (!cb_card.checked) { //Ha nincs kijelolve a kartyas fizetes
         if (!cb_cash.checked) { //Ha nincs kijelolve a kezpenzes fizetes
-            document.getElementById('cashpay').style.border = "1px solid blue"; //Akkor a kartyas fizetes legyen kijelolve
+            document.getElementById('cashpay').style.border = "1px solid red"; //Akkor a kartyas fizetes legyen kijelolve
             cb_cash.checked = true; //Jelolje be a kartyas fizetes checkbox-ot
         }else{ //Ha kivan
             document.getElementById('cashpay').style.border = "none"; //Akkor a kartyas fizetes legyen kijelolve
@@ -279,7 +277,7 @@ function Cashpay(){//kezpenz
             
         }
     }else{//Ha ki van jelolve a kartyas fizetes
-            document.getElementById('cashpay').style.border = "1px solid blue"; 
+            document.getElementById('cashpay').style.border = "1px solid red"; 
             cb_cash.checked = true;
             document.getElementById('cardpay').style.border = "none"; 
             cb_card.checked = false;

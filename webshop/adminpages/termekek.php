@@ -5,10 +5,12 @@
         $file_name = $_FILES['newfile']['name'];
 		$tmp = $_FILES['newfile']['tmp_name'];
 
-		$eleresi_ut = "../assets/img/products/".$file_name;
+        //Ha nincs ilyen mappa, akkor hozzon letre
+
+		$eleresi_ut = "../assets/img/products/".$_POST['category']."/".$file_name;
 		
 		if(move_uploaded_file($tmp, $eleresi_ut)){
-            ProductFeltolt($_POST['pname'],$_POST['pmeret'],$_POST['par'],$file_name);
+            ProductFeltolt($_POST['pname'],$_POST['category'],$_POST['par'],$file_name);
 		}
         
     }
@@ -59,7 +61,7 @@
                         <thead>
                             <tr>
                                 <th>Nev</th>
-                                <th>Meret</th>
+                                <th>Kategoria</th>
                                 <th>Ar</th>
                                 <th>Kep</th>
                                 <th>Feltoles</th>
@@ -69,7 +71,7 @@
                             <form action="termekek.php" method="post" enctype="multipart/form-data">
                                 <tr>
                                     <td><input type="text" name="pname" placeholder="Nev"></td>
-                                    <td><input type="text" name="pmeret" placeholder="Meret"></td>
+                                    <td><input type="text" name="category" placeholder="Kategoria"></td>
                                     <td><input type="text" name="par" placeholder="Ar"></td>
                                     <td><label class="file-feltoltes"><input type="file" name="newfile"/>Termek Kep</label></td>
                                     <td><input class="submitbtn" name="feltolt-btn" type="submit" value="Feltoltes"></td>
@@ -95,7 +97,7 @@
                                 <th></th>
                                 <th>ID</th>
                                 <th>Nev</th>
-                                <th>Meret</th>
+                                <th>Kategoria</th>
                                 <th>Ar</th>
                                 <th>Akcios-e</th>
                                 <th>Akcios Ar</th>
@@ -113,7 +115,7 @@
                                 <td></td>
                                 <td><?=$termek['id']?></td>
                                 <td><?=$termek['name']?></td>
-                                <td><?=$termek['sizes']?></td>
+                                <td><?=$termek['category']?></td>
                                 <td><?=$termek['price']?> Ft</td>
                                 <td><?php if($termek['sale_price']==0){echo 'Nem';}else{echo'Igen';}?></td>
                                 <td><?=$termek['on_sale']?></td>
