@@ -8,7 +8,7 @@
         $talalt = $conn->query($lekerd);
     
         echo '<nav class="navbar" id="nav">
-        <span style="font-size:30px; color: red;">Webshop</span>
+        <span style="font-size:30px; color: red;">SteelCrafters</span>
         <ul class="menu">
             <li ><a href="index.php">Kezdolap</a></li>
             <li><a href="allproducts.php">Termekek</a></li>';
@@ -22,7 +22,7 @@
         </nav>';
     }else{
         echo '<nav class="navbar" id="nav">
-        <span style="font-size:30px; color: red;">Webshop</span>
+        <span style="font-size:30px; color: red;">SteelCrafters</span>
         <ul class="menu">
             <li><a href="index.php">Kezdolap</a></li>
             <li><a href="allproducts.php">Termekek</a></li>

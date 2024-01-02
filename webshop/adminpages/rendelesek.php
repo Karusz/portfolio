@@ -2,26 +2,33 @@
     require "../config.php";
 
     $mutat = 'all';
-
+    if(!empty($_GET['id'])){
+        $id = $_GET['id'];
+    }
     
+
+    if(isset($_POST['deleteorder-btn'])){
+        $conn->query("DELETE FROM orders WHERE id=$id ");
+        header("Location: rendelesek.php");
+    }
 
     if (isset($_POST['editorder-btn'])) {
         switch ($_POST['order-status']) {
             case '0':
                 break;
             case '1':
-                $conn->query("UPDATE orders SET status='pending'");
+                $conn->query("UPDATE orders SET status='pending' WHERE id=$id");
                 break;
                 
             case '2':
-                $conn->query("UPDATE orders SET status='process'");
+                $conn->query("UPDATE orders SET status='process' WHERE id=$id");
                 break;
             case '3':
-                $conn->query("UPDATE orders SET status='completed'");
+                $conn->query("UPDATE orders SET status='completed' WHERE id=$id");
                 break;
 
             case '4':
-                $conn->query("UPDATE orders SET status='failed'");
+                $conn->query("UPDATE orders SET status='failed' WHERE id=$id");
                 break;
             default:
                 break;
@@ -119,8 +126,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                            <?php 
+                        <?php 
                                 if($mutat == "all"){
                                     $lekerdezes = "SELECT * FROM orders ORDER BY id DESC";
                                 }
@@ -139,6 +145,8 @@
                                 $talalt = $conn->query($lekerdezes);
                                 while($rendeles = $talalt->fetch_assoc()){
                             ?>
+                            <tr>
+                            
                                 <td></td>
                                 <td><?=$rendeles['date']?></td>
                                 <td><?=$rendeles['code']?></td>
@@ -170,7 +178,7 @@
                             ?>
                                 </td>
                                 <td>
-                                    <form action="rendelesek.php" method="post">
+                                    <form action="rendelesek.php?id=<?=$rendeles['id']?>" method="post">
                                         <select selected="selected" name="order-status">
                                             <option value="0">Statusz</option>
                                             <option value="1">Feldolgozas</option>
@@ -179,6 +187,7 @@
                                             <option value="4">Hiba tortent</option>
                                         </select>
                                         <input type="submit" class="submitbtn" name="editorder-btn" value="Modositas">
+                                        <input type="submit" class="submitbtn" name="deleteorder-btn" value="Torles">
                                     </form>
                                 </td>
                             <?php } ?>

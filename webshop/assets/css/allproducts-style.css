@@ -83,43 +83,54 @@ body{
 
 /* SIDENAV */
 
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
+.sidebar {
+    box-shadow: 0 0 14px rgba(3, 3, 3, 0.89);
+    width: 180px;
     z-index: 1;
-    top: 0;
     left: 0;
     background-color: black;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
+    padding-top: 16px;
   }
   
-  .sidenav a {
-    padding: 8px 8px 8px 32px;
+  .sidebar a {
+    padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     color: #818181;
     display: block;
-    transition: 0.3s;
   }
   
-  .sidenav a:hover {
+  .sidebar a:hover {
     color: #f1f1f1;
   }
   
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+  .main {
+    margin-left: 160px;
+    padding: 0px 10px;
   }
-  
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
-  
+
+.sidebar h3{
+    color: red;
+    text-align: center;
+}
+
+label{
+    display: block;
+    text-align: center;
+    color: white;
+}
+
+select{
+    margin: 2px;
+    padding: 2px;
+    display: block;
+    margin: 0 auto;
+}
+
+
   /* SIDENAVEND */
+
+ .alert{
+    text-align: center;
+    font-size: xx-large;
+ }

@@ -2,19 +2,6 @@
     require "config.php";
     require "function.php";
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Ellenőrizze, hogy a szam mező be van-e töltve
-        if (isset($_POST["szam"])) {
-            // Elmentjük a beírt számot egy változóba
-            $beirtSzam = $_POST["szam"];
-    
-            // Mostantól a $beirtSzam változóban található a beírt szám
-            echo "A beírt szám: " . $beirtSzam;
-        } else {
-            echo "Adj meg egy számot!";
-        }
-    }
-
 
     if(!empty($_GET['id'])){
             echo $_POST['szam'];
@@ -155,20 +142,21 @@
                 $lekerd = "SELECT * FROM products WHERE id=$csomag[0]";
                 $talalt = $conn->query($lekerd);
                 $termek = $talalt->fetch_assoc();
-                
+                if($termek['on_sale'] == 1){
+                    echo '';
+                }
         ?>
         <!-- Card start-->
         <div class="card">
             <div class="img"><img src="assets/img/products/<?=$termek['img']?>" alt=""></div>
             <div class="title"><?=$termek['name']?></div>
-            <div class="desc">
-                <p>Darabszam</p>
-            </div>
+            <div class="desc"><?= $termek['category']?></div>
             <div class="box">
-                <div class="price"><?= $termek['price']?> Ft</div>
+                <div class="price"><?=$termek['sale_price']?> Ft</div>
+                <div class="original_price"><?=$termek['price']?> Ft</div>
                 <form action="cart.php?removeid=<?= array_search($csomag, $_SESSION['cart'])?>" method="post">
-                        <input class="btn" name="removecart-btn" type="submit" value="Eltavolitas">
-                    </form>
+                    <input class="btn" name="removecart-btn" type="submit" value="Eltavolitas">
+                </form>
             </div>
         </div>
         <?php } ?>
@@ -230,10 +218,12 @@
         </div>
     </div>
     
-    <footer>
-        <p><a>Webshop</a></p><br>
-        <p>Php beadando Mod Karoly 14/A</p>
-    </footer>
+    <div id="footer">
+
+    </div>
+
+    
+
     
     
 </body>
@@ -309,4 +299,5 @@ function Cashpay(){//kezpenz
 //Pay kivalasztasa end
 
     $('#navbar').load('nav.php');
+    $('#footer').load('footer.php');
 </script>

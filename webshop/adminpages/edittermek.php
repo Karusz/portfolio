@@ -2,12 +2,24 @@
     require '../config.php';
     $termekid = $_GET['id'];
 
+
+
     $lekerd = "SELECT * FROM products WHERE id=$termekid";
     $talalt = $conn->query($lekerd);
     $termek = $talalt->fetch_assoc();
 
     if (isset($_POST['edit-btn'])) {
-        # code...
+        
+        $name = $_POST['pname'];
+        $category = $_POST['category'];
+        $price = $_POST['price'];
+        $sale_price = $_POST['saleprice'];
+        if($_POST['onsale'] == 0){
+            $conn->query("UPDATE products SET name='$name', category='$category', price=$price, sale_price=$sale_price, on_sale=0 WHERE id=$termekid");
+        }else{
+            $conn->query("UPDATE products SET name='$name', category='$category', price=$price, sale_price=$sale_price, on_sale= 1 WHERE id=$termekid");
+        }
+        header("Location: edittermek.php?id=$termekid");
     }
 ?>
 <!DOCTYPE html>
@@ -40,7 +52,7 @@
         <main>
             <div class="header">
                 <div class="left">
-                    <h1>Termek Szerkezto</h1>
+                    <h1>Termek Szerkeszto</h1>
                 </div>
             </div>
             <div class="bottom-data">
@@ -83,7 +95,7 @@
                         <thead>
                             <tr>
                                 <th>Nev</th>
-                                <th>Meretek</th>
+                                <th>Kategoria</th>
                                 <th>Ar</th>
                                 <th>Akcios Ar</th>
                                 <th>Akcios</th>
@@ -94,10 +106,15 @@
                             <tr>
                                 <form action="edittermek.php?id=<?= $termekid ?>" method="post">
                                     <td><input type="text" name="pname" placeholder="Nev"></td>
-                                    <td><input type="text" name="pname" placeholder="Nev"></td>
-                                    <td><input type="text" name="pname" placeholder="Nev"></td>
-                                    <td><input type="text" name="pname" placeholder="Nev"></td>
-                                    <td><input type="text" name="pname" placeholder="Nev"></td>
+                                    <td><input type="text" name="category" placeholder="Kategoria"></td>
+                                    <td><input type="number" name="price" placeholder="0"></td>
+                                    <td><input type="number" name="saleprice" placeholder="0"></td>
+                                    <td>
+                                        <select name="onsale">
+                                            <option value="0">Nem</option>
+                                            <option value="1">Igen</option>
+                                        </select>
+                                    </td>
                                     <td><input type="submit" class="submitbtn" name="edit-btn" value="Mentes!"></td>
                                 </form>
                             </tr>

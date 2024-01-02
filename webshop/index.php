@@ -34,6 +34,12 @@
     </div>
     <!-- NAVBAR END -->
     <section class="sec">
+        <!-- CHATGPT IRTA, AZERT VANNAK BENNE EKEZETEK -->
+        <h1 class="pheading">Üdv a SteelCrafters Webshopbán</h1>
+        <strong><h3>Üdvözölünk a "SteelCrafters" webshopban, ahol a kivételes minőségű és egyedi késdesign találkozik a funkcionalitással! Mi, a SteelCrafters csapata, szenvedélyesen hiszünk abban, hogy a kés nemcsak egy eszköz, hanem egy stílusos kiegészítő is, amely kifejezi egyéniségedet és egyediségedet.
+        Fedezd fel a kés világának sokszínűségét webshopban, és tegyél szert olyan különleges darabokra, amelyek nemcsak eszközként, hanem egyedi stílusod kifejezőjeként is szolgálnak. Legyél részese egy kivételes késélménynek velünk!</h3></strong>
+    </section>
+    <section class="sec">
         <h1 class="pheading">Uj Termekek</h1>
         <div class="products">
 
@@ -117,12 +123,12 @@
     
     
 
-    <footer>
-        <p><a>Webshop</a></p><br>
-        <p>Php beadando Mod Karoly 14/A</p>
-    </footer>
+    <div id="footer">
+
+    </div>
 </body>
 </html>
 <script>
     $('#navjs').load('nav.php');
+    $('#footer').load('footer.php');
 </script>

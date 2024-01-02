@@ -1,7 +1,7 @@
 <?php
 echo '<div class="sidebar">
         <a href="#" class="logo">
-            <div class="logo-name">Webshop</div>
+            <div class="logo-name">SteelCrafters</div>
         </a>
         <ul class="side-menu">
             <li>

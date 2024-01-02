@@ -272,12 +272,17 @@ li{
     color: rgba(255, 0, 0, 0.863);
 }
 
-td input[type=text]{
+td input[type=text], input[type=number]{
     border-radius: 8px;
     padding: 5px;
     position: block;
     text-align: center;
     width: 80%;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 td input[type="file"] {
