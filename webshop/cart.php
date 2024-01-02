@@ -2,6 +2,23 @@
     require "config.php";
     require "function.php";
 
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Ellenőrizze, hogy a szam mező be van-e töltve
+        if (isset($_POST["szam"])) {
+            // Elmentjük a beírt számot egy változóba
+            $beirtSzam = $_POST["szam"];
+    
+            // Mostantól a $beirtSzam változóban található a beírt szám
+            echo "A beírt szám: " . $beirtSzam;
+        } else {
+            echo "Adj meg egy számot!";
+        }
+    }
+
+
+    if(!empty($_GET['id'])){
+            echo $_POST['szam'];
+    }
 
     if (isset($_POST['removecart-btn'])) {
         RemoveCart($_GET['removeid']);
@@ -131,7 +148,6 @@
 <body>
     <div id="navbar"></div>
     <h1>Kosar</h1>
-    <h3>Termekek szama: <?php echo count($_SESSION['cart']);?></h3>
     <div class="products">
         <?php
             
@@ -147,14 +163,6 @@
             <div class="title"><?=$termek['name']?></div>
             <div class="desc">
                 <p>Darabszam</p>
-                <form action="" method="post">
-                    <select name="db" id="db"><!-- PHPBAN MEGCSINALNI-->
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </form>
             </div>
             <div class="box">
                 <div class="price"><?= $termek['price']?> Ft</div>
@@ -231,6 +239,14 @@
 </body>
 </html>
 <script>
+function mentes(szam) {
+    // Elküldjük az értéket AJAX segítségével a feldolgozó PHP fájlnak
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "cart.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send("szam=" + szam);
+}
+
 //Pay kivalasztasa start
 document.getElementById('cardpay-btn').style.display = 'none';
 document.getElementById('cashpay-btn').style.display = 'none';
@@ -291,5 +307,6 @@ function Cashpay(){//kezpenz
     }
 }
 //Pay kivalasztasa end
+
     $('#navbar').load('nav.php');
 </script>
