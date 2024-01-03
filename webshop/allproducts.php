@@ -38,9 +38,9 @@
 <body>
     <!-- NAVBAR -->
     <div>
-    <nav class="navbar" id="navjs">
+    <div id="navjs">
         
-    </nav>
+    </div>
     <!-- NAVBAR END -->
     <!-- SIDENAV -->
         <div class="sidebar">

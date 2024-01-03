@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 18, 2023 at 09:12 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Gép: 127.0.0.1
+-- Létrehozás ideje: 2024. Jan 03. 15:19
+-- Kiszolgáló verziója: 10.4.32-MariaDB
+-- PHP verzió: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `webshop`
+-- Adatbázis: `webshop`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admins`
+-- Tábla szerkezet ehhez a táblához `admins`
 --
 
 CREATE TABLE `admins` (
@@ -34,16 +34,16 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- Dumping data for table `admins`
+-- A tábla adatainak kiíratása `admins`
 --
 
 INSERT INTO `admins` (`id`, `user_id`, `username`) VALUES
-(1, 1, 'Karesz');
+(2, 2, 'Karesz');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `checks`
+-- Tábla szerkezet ehhez a táblához `checks`
 --
 
 CREATE TABLE `checks` (
@@ -55,16 +55,22 @@ CREATE TABLE `checks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- Dumping data for table `checks`
+-- A tábla adatainak kiíratása `checks`
 --
 
 INSERT INTO `checks` (`id`, `order_code`, `products_id`, `pay_price`, `price`) VALUES
-(1, 'QCAEO', '1-;1-;1-;', 200, 800);
+(1, 'QCAEO', '1-;1-;1-;', 200, 800),
+(2, 'BSYYN', '20-;19-;18-;', 200, 1952200),
+(3, 'PICAX', '21-;20-;19-;', 200, 1865200),
+(4, 'RBHIW', '22-;21-;', 200, 965200),
+(5, 'KKCLV', '21-;20-;', 200, 1105200),
+(6, 'IJVBY', '21-;20-;', 200, 1105200),
+(7, 'GFQVL', '22-;22-;21-;', 200, 1405200);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cupons`
+-- Tábla szerkezet ehhez a táblához `cupons`
 --
 
 CREATE TABLE `cupons` (
@@ -77,7 +83,7 @@ CREATE TABLE `cupons` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Tábla szerkezet ehhez a táblához `orders`
 --
 
 CREATE TABLE `orders` (
@@ -96,40 +102,60 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- Dumping data for table `orders`
+-- A tábla adatainak kiíratása `orders`
 --
 
 INSERT INTO `orders` (`id`, `code`, `products`, `order_email`, `order_tel`, `order_name`, `order_address`, `text`, `pay`, `paycount`, `date`, `status`) VALUES
-(2, 'QCAEO', '1-;1-;1-;', 'modkarcsika@gmail.com', '123', 'Mod Karesz', '1234 Varos Utca 2 emelet csengo lepcsohaz', '', 'utanvetel', 800, '2023-12-18', 'pending');
+(7, 'IJVBY', '21-;20-;', '', '', ' ', '      ', '', 'utanvetel', 1105200, '2023-12-31', 'failed');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Tábla szerkezet ehhez a táblához `products`
 --
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `sizes` varchar(255) NOT NULL,
+  `category` varchar(1000) NOT NULL,
   `price` int(255) NOT NULL,
   `sale_price` int(255) NOT NULL,
-  `on_sale` tinyint(1) NOT NULL,
+  `on_sale` int(1) NOT NULL,
   `sold` int(255) NOT NULL,
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- Dumping data for table `products`
+-- A tábla adatainak kiíratása `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `sizes`, `price`, `sale_price`, `on_sale`, `sold`, `img`) VALUES
-(1, 'test', 'x', 200, 0, 0, 0, 'shirt.png');
+INSERT INTO `products` (`id`, `name`, `category`, `price`, `sale_price`, `on_sale`, `sold`, `img`) VALUES
+(2, 'Black', 'butterfly', 20000, 15000, 1, 0, 'butterfly/black.jpg'),
+(3, 'Blue', 'butterfly', 20000, 0, 0, 0, 'butterfly/blue.jpg'),
+(4, 'Fade', 'butterfly', 20000, 0, 1, 3, 'butterfly/fade.jpg'),
+(5, 'Gold Haircomb', 'butterfly', 13000, 5000, 1, 0, 'butterfly/gold-haircomb.jpg'),
+(6, 'Green', 'butterfly', 20000, 0, 0, 0, 'butterfly/green-gray.jpg'),
+(7, 'Pink', 'butterfly', 18000, 0, 0, 0, 'butterfly/pink.jpg'),
+(8, 'Traning', 'butterfly', 15000, 0, 0, 0, 'butterfly/traning.jpg'),
+(9, 'Black', 'huntsman', 24000, 0, 0, 0, 'huntsman/black.jpg'),
+(10, 'Blue', 'huntsman', 24000, 0, 0, 0, 'huntsman/blue.jpg'),
+(11, 'Fade', 'huntsman', 24000, 0, 0, 1, 'huntsman/fade.jpg'),
+(12, 'Galaxy', 'huntsman', 30000, 0, 0, 0, 'huntsman/galaxy.jpg'),
+(13, 'Green', 'huntsman', 21000, 0, 0, 0, 'huntsman/green.jpg'),
+(14, 'Orange', 'huntsman', 24000, 0, 0, 0, 'huntsman/orange.jpg'),
+(15, 'Red', 'huntsman', 24000, 0, 0, 0, 'huntsman/red.jpg'),
+(16, 'Black', 'karambit', 30000, 0, 0, 0, 'karambit/black.jpg'),
+(17, 'Kamileon', 'karambit', 35000, 0, 0, 0, 'karambit/camileon.jpg'),
+(18, 'Fade', 'karambit', 34000, 0, 0, 0, 'karambit/fade.jpg'),
+(19, 'Galaxy', 'karambit', 40000, 0, 0, 0, 'karambit/galaxy.jpg'),
+(20, 'Gold', 'karambit', 29000, 0, 0, 0, 'karambit/gold.jpg'),
+(21, 'Red', 'karambit', 25000, 0, 0, 0, 'karambit/red.jpg'),
+(22, 'Traning', 'karambit', 20000, 0, 0, 0, 'karambit/traning.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tábla szerkezet ehhez a táblához `users`
 --
 
 CREATE TABLE `users` (
@@ -140,91 +166,91 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- Dumping data for table `users`
+-- A tábla adatainak kiíratása `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `passhash`) VALUES
-(1, 'Karesz', 'modkarcsika@gmail.com', '$2y$10$QqtQl9bxrVkhkCvAunW5Le0Eex64Fi774csEAcE21b9SE5Tz0wJc.');
+(2, 'Karesz', 'modkarcsika@gmail.com', '$2y$10$lcgYZuCGSFJSiUfk/TnITu24YIFINa3KPlLWwh/FPRcFedgSdTgg2');
 
 --
--- Indexes for dumped tables
+-- Indexek a kiírt táblákhoz
 --
 
 --
--- Indexes for table `admins`
+-- A tábla indexei `admins`
 --
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `checks`
+-- A tábla indexei `checks`
 --
 ALTER TABLE `checks`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `cupons`
+-- A tábla indexei `cupons`
 --
 ALTER TABLE `cupons`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `orders`
+-- A tábla indexei `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `products`
+-- A tábla indexei `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- A tábla indexei `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- A kiírt táblák AUTO_INCREMENT értéke
 --
 
 --
--- AUTO_INCREMENT for table `admins`
+-- AUTO_INCREMENT a táblához `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `checks`
+-- AUTO_INCREMENT a táblához `checks`
 --
 ALTER TABLE `checks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `cupons`
+-- AUTO_INCREMENT a táblához `cupons`
 --
 ALTER TABLE `cupons`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT a táblához `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT a táblához `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
