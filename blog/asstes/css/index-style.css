@@ -1,3 +1,29 @@
-* {
+.brand-img{
+ height: 20px;
+ margin-top: 2px;
+}
+
+span{
+    color: white;
+}
+
+nav{
+    background-color: black;
+    box-shadow: 0 10px 10px gray;
+}
+
+span:hover{
+    color: red;
+}
+
+button{
+    border: 1px solid black;
+    border-radius: 10px;
+    color: white;
+    background-color: red;
+}
+
+button:hover{
+    background-color: black;
     color: red;
 }
