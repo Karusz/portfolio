@@ -1,7 +1,57 @@
-.left{
-    float: left;
+body{
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    width: auto;
+}
+
+:root{
+    --black: black;
+    --red: red;
+    --darkred: rgb(160, 0, 0);
+    --shadow: 0 10px 10px gray;
+}
+
+
+/* Nav start */
+.brand-img{
+    height: 20px;
+    margin-top: 2px;
+}
+
+span{
+    color: white;
+}
+   
+nav{
+    background-color: var(--black);
+    box-shadow: var(--shadow);
+}
+   
+span:hover{
+    color: var(--red);
+}
+   
+.nav-btn{
+   padding: 5px;
+    font-weight: bold;
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    color: white;
+    background-color: var(--red);
+}
+   
+.nav-btn:hover{
+    background-color: var(--darkred);
+    color: var(--black);
+}
+
+/* Nav end */
+
+
+.content{
+    margin-top: 50px;
 }
 
 .nezet{
-    border-color: red 2px solid;
+    border: var(--red) 2px solid;
 }

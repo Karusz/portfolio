@@ -1,29 +1,30 @@
-.brand-img{
- height: 20px;
- margin-top: 2px;
+/* ABOUT START */
+.about{
+    margin: 10px;
 }
 
-span{
-    color: white;
+.about img{
+    display: block;
+    width: 300px;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
 }
 
-nav{
-    background-color: black;
-    box-shadow: 0 10px 10px gray;
+
+
+/* ABOUT END*/
+
+/* POST CARD START*/
+.post{
+    padding: 5px;
 }
 
-span:hover{
-    color: red;
-}
-
-button{
-    border: 1px solid black;
+.post-card{
+    border: 1px var(--black) solid;
     border-radius: 10px;
-    color: white;
-    background-color: red;
+    padding: 5px;
 }
 
-button:hover{
-    background-color: black;
-    color: red;
-}
+/* POST CARD END*/
