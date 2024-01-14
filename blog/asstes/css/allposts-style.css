@@ -1,0 +1,11 @@
+h1{
+    text-align: center;
+}
+
+.postimg img{
+    display: block;
+    width: 300px;
+    margin: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}

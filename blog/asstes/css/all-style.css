@@ -1,14 +1,20 @@
-body{
-    font-family: 'Poppins', sans-serif;
-    height: 100%;
-    width: auto;
-}
 
 :root{
     --black: black;
     --red: red;
     --darkred: rgb(160, 0, 0);
     --shadow: 0 10px 10px gray;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    width: auto;
 }
 
 
