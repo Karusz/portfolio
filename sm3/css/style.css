@@ -1,0 +1,160 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.nezet{
+    border: 2px solid red;
+}
+
+.nav{
+    display: block;
+    padding-bottom: 5px;
+    margin: 0;
+    box-shadow: 0 4px 0 0 rgba(93, 93, 93, 0.342);
+    
+}
+
+.nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav li{
+    list-style: none;
+    margin: 5px;
+    text-decoration: none;
+    color: black;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+.brand{
+    font-size: x-large;
+    float: left;
+    font-weight: bold;
+}
+
+.log-btn button{
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    float: right;
+}
+
+.log-btn button:hover{
+    background-color: gray;
+    color: black;
+}
+
+.log-btn button a{
+    text-decoration: none;
+    color: white;
+}
+
+.log-btn button:hover{
+    cursor: pointer;
+    background-color: rgb(30, 30, 30);
+
+}
+
+.esemeny{
+    padding-top: 10px;
+    display: block;
+    text-align: center;
+}
+
+
+.jegy{
+    border-radius: 15px;
+    text-align: center;
+    display: block;
+    padding: 5px;
+    margin: 15px 35% 0 35%;
+    border: solid 1px black;
+}
+
+
+.jegy input[type=submit]{
+    font-weight: bold;
+    padding: 5px;
+    margin-right: 2px;
+    background-color: red;
+    border: 1px solid;
+    border-radius: 10px;
+    color: white;
+}
+
+.bal{
+    float: left;
+    padding: 5px;
+}
+
+.jobb{
+    float: right;
+    padding: 5px;
+    margin-right: 20px;
+}
+
+#db{
+    text-align: center;
+    width: 10%;
+    float: right;
+}
+
+input{
+    height: auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input, label{
+    display: block;
+    margin: auto;
+    margin-right: 20px;
+}
+
+input[type=text]{
+    display: block;
+    padding: 5px;
+    border: 2px solid #333;
+    border-radius: 5px;
+}
+
+.kozep{
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type=number]{
+    padding: 5px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    margin-left: 0;
+}
+
+input[type=submit]{
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover{
+    background-color: gray;
+    color: black;
+}
