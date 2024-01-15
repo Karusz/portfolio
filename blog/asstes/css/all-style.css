@@ -1,9 +1,12 @@
-
 :root{
     --black: black;
     --red: red;
     --darkred: rgb(160, 0, 0);
-    --shadow: 0 10px 10px gray;
+    --shadow: 0 10px 10px #6A687A;
+    --green: #2BA84A;
+    --darkgreen: #248232;
+    --gray: #6A687A;
+
 }
 
 *{

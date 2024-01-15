@@ -1,3 +1,9 @@
+<?php
+  require "config.php";
+  session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -19,18 +25,33 @@
     <!-- CSS -->
     <link rel="stylesheet" href="asstes/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="asstes/css/all-style.css">
-    <link rel="stylesheet" href="asstes/css/index-style.css">
+    <link rel="stylesheet" href="asstes/css/allposts-style.css">
 </head>
 <body>
     <!-- NAVBAR START -->
     <div id="navbar"></div>
     <!-- NAVBAR END-->
-    <div class="content container justify-content-center nezet">
-        <form action="login.php" method="post">
-            <input type="text" placeholder="Email">
-            <input type="text" placeholder="Jelszo">
-            <input type="submit" value="Bejelentkezes">
-        </form>
+    <div class="content container ">
+        <div class="row post">
+          <?php
+          $lekerd = "SELECT * FROM posts ORDER BY id DESC";
+          $talalt = $conn->query($lekerd);
+          while ($post=$talalt->fetch_assoc()) {
+            
+          
+          ?>
+          <div class="col-3">
+            <img src="asstes/img/<?=$post['thumbnail']?>" alt="">
+          </div>
+          <div class="col-9">
+              <h2><?=$post['name']?></h2>
+              <p><?= $post['short_text']?></p>
+              <button><a href="post.php?postid=<?=$post['id']?>">Tovabb</a></button>
+          </div>
+          <?php }?>
+        </div>
+      
+      
     </div>
 </body>
 </html>

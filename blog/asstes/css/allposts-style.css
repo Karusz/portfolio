@@ -1,11 +1,25 @@
-h1{
+.post{
+    margin-top: 50px;
+    border: 1px solid var(--black);
+}
+.post .name{
     text-align: center;
 }
 
-.postimg img{
+.post img{
     display: block;
     width: 300px;
-    margin: auto;
     border-radius: 15px;
-    margin-bottom: 20px;
+}
+
+button{
+    border: 1px solid var(--black);
+    border-radius: 15px;
+    padding: 5px;
+    background-color: var(--red);
+}
+
+button:hover{
+    background-color: var(--darkred);
+    color: white;
 }

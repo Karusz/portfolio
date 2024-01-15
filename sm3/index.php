@@ -34,7 +34,7 @@
                 }else{
                     echo '<form action="editevent.php?eventid='.$id.'" method="post">
                         <fieldset class="jegy">
-                            <input class="jobb" type="submit" value="Szerkeztes">
+                            <input class="jobb" type="submit" value="Szerkesztes">
                             <label class="bal"><strong>'.$event["name"].'</strong></label>
                         </fieldset>
                     </form>';
