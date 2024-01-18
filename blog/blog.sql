@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Jan 18. 01:39
--- Kiszolgáló verziója: 10.4.32-MariaDB
--- PHP verzió: 8.2.12
+-- Létrehozás ideje: 2024. Jan 18. 13:05
+-- Kiszolgáló verziója: 10.4.28-MariaDB
+-- PHP verzió: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,6 +33,14 @@ CREATE TABLE `messages` (
   `text` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
+--
+-- A tábla adatainak kiíratása `messages`
+--
+
+INSERT INTO `messages` (`id`, `email`, `text`) VALUES
+(1, 'proba@gmail.com', 'Probasyöveg'),
+(2, 'proba@gmail.com', 'masodik proba uzenet');
+
 -- --------------------------------------------------------
 
 --
@@ -57,6 +65,7 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `name` varchar(1000) NOT NULL,
   `email` varchar(1000) NOT NULL,
+  `img` varchar(1000) NOT NULL,
   `password` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
@@ -64,8 +73,8 @@ CREATE TABLE `user` (
 -- A tábla adatainak kiíratása `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `password`) VALUES
-(1, 'Karesz', 'karusz0104@gmail.com', 'admin');
+INSERT INTO `user` (`id`, `name`, `email`, `img`, `password`) VALUES
+(1, 'Karesz', 'karusz0104@gmail.com', 'profilkep.png', 'admin');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -97,7 +106,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT a táblához `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `posts`

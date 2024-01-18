@@ -1,4 +1,4 @@
-.login-container {
+.create-container {
     display: block;
     width: 50%;
     background-color: var(--black);
@@ -41,4 +41,37 @@ input[type=submit] {
 
 input[type=submit]:hover {
     background-color: var(--darkred);
+}
+
+input[type=file]{
+    color: white;
+}
+
+.inputfile::-webkit-file-upload-button {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile::before {
+    content: 'Kép feltöltése';
+    color: white;
+    display: inline-block;
+    background-color: var(--red); 
+    border-radius: 20px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-weight: 400;
+    margin-right: 10px;
+}
+.inputfile:hover::before {
+    border-color: black;
+}
+.inputfile:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
