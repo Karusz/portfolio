@@ -2,9 +2,7 @@
 
   require "config.php";
 
-  if(empty($_SESSION['id'])){
-    header("Location: index.php");
-  }
+  
 
   if(isset($_POST['post-btn'])){
 
