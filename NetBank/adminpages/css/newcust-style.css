@@ -1,0 +1,56 @@
+
+
+.add-customer, .add-money{
+    margin: auto;
+    width: 25%;
+    padding: 20px;
+}
+
+.add-customer h2{
+    text-align: center;
+}
+
+.add-customer form{
+    padding: 15px;
+    width: 90%;
+}
+
+.add-customer input{
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.btn{
+    background-color: rgba(0, 238, 255, 0.856);
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: rgba(2, 179, 192, 0.856);
+}
+
+
+.add-money h2{
+    text-align: center;
+}
+
+.add-money form{
+    padding: 15px;
+    width: 90%;
+}
+
+.add-money input{
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+.add-money select{
+    width: auto;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
