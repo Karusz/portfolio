@@ -1,0 +1,14 @@
+.filter{
+    margin: 10px;
+    padding: 5px;
+}
+
+.filter input{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.filter-content{
+    margin: 10px;
+    text-align: center;
+}
