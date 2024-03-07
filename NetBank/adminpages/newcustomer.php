@@ -69,7 +69,13 @@
         <h2>Pénz feltöltése</h2>
         <form action="newcustomer.php" method="post">
             <select name="ember-szamlaszam">
-                    <option value="">Szamlaszam</option>
+                <?php
+                    $lekerd = "SELECT * FROM szamlak";
+                    $talalt = $conn->query($lekerd);
+                    while($szamla=$talalt->fetch_assoc()){
+                ?>
+                    <option value="<?= $szamla['szamlaszam'] ?>"><?= $szamla['szamlaszam'] ?></option>
+                <?php } ?>
             </select>
             <input type="number" name="ertek" placeholder="Ft">
             <input class="btn" type="submit" name="up-btn" value="Feltöltés">

@@ -1,5 +1,24 @@
 <?php
+    require "config.php";
 
+    if(isset($_POST['login-btn'])){
+        $code = $_POST['code'];
+        $password = $_POST['psw'];
+
+        $lekerd = "SELECT * FROM users WHERE code = '$code'";
+        $talalt = $conn->query($lekerd);
+        if(mysqli_num_rows($talalt) == 1){
+            $customer = $talalt->fetch_assoc();
+
+            if($password == $customer['password']){
+                header("Location: szamla.php?code=$customer[code]");
+            }else{
+                echo "<script>alert('Rossz azonosító vagy jelszó!')</script>";
+            }
+        }else{
+            echo "<script>alert('Rossz azonosító vagy jelszó!')</script>";
+        }
+    }
 
 ?>
 <!DOCTYPE html>
@@ -18,9 +37,9 @@
         <div class="content">
             <form action="" method="post">
                 <h1>Bejelentkezés</h1>
-                <input type="text" placeholder="Azonosító" require>
-                <input type="password" placeholder="Jelszó" require>
-                <button class="btnLogin">Bejelentkezés</button>
+                <input type="text" name="code" placeholder="Azonosító" require>
+                <input type="password" name="psw" placeholder="Jelszó" require>
+                <button  class="btnLogin" name="login-btn">Bejelentkezés</button>
             </form>
         </div>
     </main>

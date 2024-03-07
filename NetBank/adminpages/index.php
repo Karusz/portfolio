@@ -40,7 +40,7 @@
                     $lekerd = "SELECT * FROM users";
                     $talalt = $conn->query($lekerd);
                     while ($ugyf = $talalt->fetch_assoc()) {
-                        echo '<h3><a href="szamla.php?code='.$ugyf['azonosito'].'">'.$ugyf['vnev'].' '.$ugyf['knev'].'</a></h3>';
+                        echo '<h3><a href="szamla.php?code='.$ugyf['code'].'">'.$ugyf['vnev'].' '.$ugyf['knev'].'</a></h3>';
                     }
                 
                 ?>
@@ -51,7 +51,7 @@
     <script>
 	    document.getElementById('kereso').addEventListener('keyup', (e)=>{
 		    const adat = e.target.value.toLowerCase();
-		    $("#ugyfelek").load("findmember.php?find="+adat);
+		    $("#ugyfelek").load("findcustomer.php?find="+adat);
 	    });
     </script>
 
