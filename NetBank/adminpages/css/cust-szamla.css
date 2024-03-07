@@ -19,15 +19,11 @@ td, th {
 }
 
 .functions{
-    
     display: block;
     margin: 5px;
     margin-top: 10px;
 }
 
-.functions form{
-    float: left;
-}
 
 .add-btn{
     padding: 10px;
@@ -42,6 +38,14 @@ td, th {
     background-color: rgba(2, 179, 192, 0.856);
 }
 
+.addbtns{
+    float: left;
+}
+
+.removebtns{
+    float: inline-end;
+}
+
 .remove-btn{
     padding: 10px;
     margin-right: 10px;
@@ -52,4 +56,42 @@ td, th {
 
 .remove-btn:hover{
     background-color: rgb(197, 1, 1);
+}
+
+.modalSelect{
+    text-align: center;
+    width: 50%;
+    padding: 5px;
+}
+
+.modal-content form{
+    text-align: center;
+}
+
+.modal-cbx{
+    padding: 4px;
+    font-size: large;
+}
+
+
+.add-money h2{
+    text-align: center;
+}
+
+.add-money form{
+    padding: 15px;
+    width: 100%;
+}
+
+.add-money input{
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+.add-money select{
+    width: auto;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
 }

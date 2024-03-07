@@ -32,25 +32,3 @@
 }
 
 
-.add-money h2{
-    text-align: center;
-}
-
-.add-money form{
-    padding: 15px;
-    width: 90%;
-}
-
-.add-money input{
-    width: 100%;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-}
-.add-money select{
-    width: auto;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-}
-
