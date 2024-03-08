@@ -38,6 +38,39 @@ main {
     border: 1px solid rgba(0, 0, 0, 0.384);
 }
 
+.btn{
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 238, 255, 0.856);
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: rgba(2, 179, 192, 0.856);
+}
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.212);
+}
+
+.adatok{
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 .modal {
     display: none;
     position: fixed;
