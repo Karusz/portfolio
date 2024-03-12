@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 07, 2024 at 09:53 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Gép: 127.0.0.1
+-- Létrehozás ideje: 2024. Már 12. 13:13
+-- Kiszolgáló verziója: 10.4.28-MariaDB
+-- PHP verzió: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `netbank`
+-- Adatbázis: `netbank`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `szamlak`
+-- Tábla szerkezet ehhez a táblához `cards`
+--
+
+CREATE TABLE `cards` (
+  `kartyaszam` varchar(1000) NOT NULL,
+  `szamlaszam` varchar(1000) NOT NULL,
+  `lejarat` varchar(1000) NOT NULL,
+  `save_code` varchar(1000) NOT NULL,
+  `PIN` varchar(4) NOT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `szamlak`
 --
 
 CREATE TABLE `szamlak` (
@@ -34,16 +49,16 @@ CREATE TABLE `szamlak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
--- Dumping data for table `szamlak`
+-- A tábla adatainak kiíratása `szamlak`
 --
 
 INSERT INTO `szamlak` (`user_azonosito`, `szamlaszam`, `osszeg`) VALUES
-('86089710', '30697727-89163118-91811473', '87069070');
+('86089710', '30697727-89163118-91811473', '0');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tábla szerkezet ehhez a táblához `users`
 --
 
 CREATE TABLE `users` (
@@ -54,7 +69,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
--- Dumping data for table `users`
+-- A tábla adatainak kiíratása `users`
 --
 
 INSERT INTO `users` (`code`, `vnev`, `knev`, `password`) VALUES

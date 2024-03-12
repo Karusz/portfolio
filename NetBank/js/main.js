@@ -1,18 +1,20 @@
-var modal = document.getElementById("szamlaDelete");
-var btn = document.getElementById("deleteSzBtn");
-var span = document.getElementsByClassName("close")[0];
-btn.onclick = function() {
-  modal.style.display = "block";
+//Számla törlése
+var szamlamodal = document.getElementById("szamlaDeleteModal");
+var szamlabtn = document.getElementById("deleteSzBtn");
+var szamlaspan = document.getElementsByClassName("close")[0];
+szamlabtn.onclick = function() {
+  szamlamodal.style.display = "block";
 }
-span.onclick = function() {
-  modal.style.display = "none";
+szamlaspan.onclick = function() {
+  szamlamodal.style.display = "none";
 }
 window.onclick = function(event) {
   if (event.target == modal) {
-    modal.style.display = "none";
+    szamlamodal.style.display = "none";
   }
 }
 
+//Pénz hozzáadaása
 var moneyModal = document.getElementById("addMondeyModal");
 var moneyBtn = document.getElementById("addMoneyBtn");
 var moneySpan = document.getElementsByClassName("close")[1];
@@ -25,6 +27,22 @@ moneySpan.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     moneyModal.style.display = "none";
+  }
+}
+
+//Kártya törlése
+var cardModal = document.getElementById("kartyaDeleteModal");
+var cardBtn = document.getElementById("deleteKBtn");
+var cardSpan = document.getElementsByClassName("close")[2];
+cardBtn.onclick = function() {
+  cardModal.style.display = "block";
+}
+cardSpan.onclick = function() {
+  cardModal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    cardModal.style.display = "none";
   }
 }
 

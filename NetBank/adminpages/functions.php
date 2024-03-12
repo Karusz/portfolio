@@ -18,4 +18,10 @@
         return $szamlaszam;
     }
 
+    function CardGenerate(){
+        $kartyaszam = CodeGenerate(4);
+        $kartyaszam .= "-".CodeGenerate(4)."-".CodeGenerate(4)."-".CodeGenerate(4);
+        return $kartyaszam;
+    }
+
 ?>

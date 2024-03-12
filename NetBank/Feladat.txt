@@ -1,0 +1,1 @@
+Utalást megcsinálni, a hónapokban a költéseket kiírni (SQL-be mikor mennyit költött és lehet szűrni)

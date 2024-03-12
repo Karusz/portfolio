@@ -17,6 +17,15 @@
         $torles = $_POST['deleteSzamlasz'];
         $conn->query("DELETE FROM szamlak WHERE szamlaszam='$torles'");
     }
+
+    if(isset($_POST['deleteCard-btn'])){
+        $torles = $_POST['kartyaDeleteSz'];
+        $conn->query("DELETE FROM cards WHERE kartyaszam='$torles'");
+    }
+
+    if(isset($_POST['new-card'])){
+        header("Location: newcard.php?code=$code");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,8 +44,8 @@
             <li><a href="index.php">Ügyfél kereső</a></li>
         </ul>
     </header>
-
-    <div id="szamlaDelete" class="modal">
+    
+    <div id="szamlaDeleteModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <form action="szamla.php?code=<?=$code?>" method="post">
@@ -51,6 +60,28 @@
                     <?php } ?>
                 </select>
                 <button class="remove-btn" name="deleteSzamlaszam">Törlés</button>
+            </form>
+        </div>
+    </div>
+    <div id="kartyaDeleteModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form action="szamla.php?code=<?=$code?>" method="post">
+                <label>Melyik Kártyaszámot szeretnéd törölni?: </label>
+                <select name="kartyaDeleteSz" class="modalSelect">
+                    <?php
+                        $lekerd = "SELECT * FROM szamlak WHERE user_azonosito = '$code' ORDER BY osszeg";
+                        $talalt = $conn->query($lekerd);
+                        $szamla=$talalt->fetch_assoc();
+
+                        $lekerd = "SELECT * FROM cards WHERE szamlaszam = '$szamla[szamlaszam]'";
+                        $talalt = $conn->query($lekerd);
+                        while($card = $talalt->fetch_assoc()){
+                    ?>
+                        <option value="<?= $card['kartyaszam']?>"><?= $card['kartyaszam']?></option>
+                    <?php } ?>
+                </select>
+                <button class="remove-btn" name="deleteCard-btn">Törlés</button>
             </form>
         </div>
     </div>
@@ -78,7 +109,7 @@
     <div class="functions">
         <div class="removebtns">
             <button class="remove-btn" id="deleteSzBtn">Számla Törlése</button>
-            <button class="remove-btn" >Kártya Törlése</button>
+            <button class="remove-btn" id="deleteKBtn">Kártya Törlése</button>
         </div>
         <div class="addbtns">
             <button class="add-btn" id="addMoneyBtn">Összeg hozzáadása</button>
