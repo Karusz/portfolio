@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Már 12. 13:13
+-- Létrehozás ideje: 2024. Már 19. 13:11
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.2.4
 
@@ -36,6 +36,14 @@ CREATE TABLE `cards` (
   `is_active` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
+--
+-- A tábla adatainak kiíratása `cards`
+--
+
+INSERT INTO `cards` (`kartyaszam`, `szamlaszam`, `lejarat`, `save_code`, `PIN`, `is_active`) VALUES
+('5975-6051-3213-0046', '30697727-89163118-91811473', '03/34', '872', '1234', 1),
+('2435-0359-8739-9504', '79241467-25003283-55437944', '03/34', '494', '1234', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -45,15 +53,20 @@ CREATE TABLE `cards` (
 CREATE TABLE `szamlak` (
   `user_azonosito` varchar(1000) NOT NULL,
   `szamlaszam` varchar(1000) NOT NULL,
-  `osszeg` varchar(1000) NOT NULL
+  `osszeg` int(11) NOT NULL,
+  `letrehozasi_ido` varchar(1000) NOT NULL,
+  `tranzakcio` int(255) NOT NULL,
+  `tranzakcio_ido` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `szamlak`
 --
 
-INSERT INTO `szamlak` (`user_azonosito`, `szamlaszam`, `osszeg`) VALUES
-('86089710', '30697727-89163118-91811473', '0');
+INSERT INTO `szamlak` (`user_azonosito`, `szamlaszam`, `osszeg`, `letrehozasi_ido`, `tranzakcio`, `tranzakcio_ido`) VALUES
+('06598281', '32072610-95824067-84094867', 50642, '', 1, '-'),
+('86089710', '34461168-36361108-57052945', 3, '', 0, '2024/03/19'),
+('86089710', '58634136-70785793-07193203', 0, '', 335, '2024/03/19');
 
 -- --------------------------------------------------------
 
@@ -73,7 +86,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`code`, `vnev`, `knev`, `password`) VALUES
-('86089710', 'Test', 'Pista', 'pistike');
+('86089710', 'Test', 'Pista', 'pistike'),
+('06598281', 'nem', 'tom', '123456');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

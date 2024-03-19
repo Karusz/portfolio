@@ -6,6 +6,7 @@
         $kname = $_POST['kname'];
         $vname = $_POST['vname'];
         $password = $_POST['psw'];
+        $ido = date("Y/m/d");
 
         $azonosito = CodeGenerate(8);
         //Megnézzük, hogy van-e már olyan kóddal ellátott ügyfél
@@ -18,8 +19,9 @@
             $szamlaszam = SzamlaGenerate();
         }
         
+
         $conn->query("INSERT INTO users VALUES('$azonosito', '$vname','$kname','$password')");
-        $conn->query("INSERT INTO szamlak VALUES('$azonosito','$szamlaszam',0)");
+        $conn->query("INSERT INTO szamlak VALUES('$azonosito','$szamlaszam',0,'$ido','0','')");
     }
 
     if(isset($_POST['up-btn'])){

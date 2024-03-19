@@ -40,8 +40,14 @@
     </header>
     <div class="adatok">
         <h1>Üdv, <?=$felh['vnev']." ".$felh['knev'] ?></h1>
-        <h3>Pénz költése a hónapban:</h3>
-        <h4>Kattints rá a kívánt számlaszámot tartalmazó kártyára, hogy megnézd az utalásí előzmányeket, és hogy tudj utalni.</h4>
+        <?php
+            $lekerd = "SELECT * FROM szamlak WHERE user_azonosito = '$felh[code]'";
+            $talalt = $conn->query($lekerd);
+            $fsz = $talalt->fetch_assoc();
+        
+        ?>
+        <h3>Pénz költése a <?=$fsz['tranzakcio_ido'] ?> intervallumban: <?= $fsz['tranzakcio'] ?></h3>
+        <h4>Kattints rá a kívánt számlaszámot tartalmazó kártyára, hogy megnézd az utalási előzményeket, és hogy tudj utalni.</h4>
     </div>
     <div class="vonal"></div>
     <div class="content">
@@ -53,7 +59,7 @@
             while($szamla = $sz_talalt->fetch_assoc()){
         ?>
             <div class="card">
-                <a href="utalas.php">
+                <a href="utalas.php?szamlaszam=<?= $szamla['szamlaszam']?>&code=<?=$code?>">
                     <div class="title">Számlaszám: <br><?= $szamla['szamlaszam']?></div>
                     <div class="value">Összeg: <br><?=$szamla['osszeg']?> Ft</div>
                 </a>

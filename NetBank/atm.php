@@ -30,7 +30,11 @@
             if($szamla['osszeg'] >= $osszeg){
                 $szamlan = $szamla['osszeg'];
                 $szamlara = $szamlan-$osszeg;
-                $conn->query("UPDATE szamlak SET osszeg = $szamlara WHERE szamlaszam = '$card[szamlaszam]'");
+
+                $ido = date("Y/m/d");
+
+
+                $conn->query("UPDATE szamlak SET osszeg = $szamlara, tranzakcio= $osszeg, tranzakcio_ido = $ido WHERE szamlaszam = '$card[szamlaszam]'");
             }else{
                 echo '<script>alert("Nincs elég fedezet a kártyán!")</script>';
             }

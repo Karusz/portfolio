@@ -10,7 +10,8 @@
 
     if(isset($_POST['new-sz'])){
         $szamlaszam = SzamlaGenerate();
-        $conn->query("INSERT INTO szamlak VALUES('$code','$szamlaszam',0)");
+        $ido = date("Y/m/d");
+        $conn->query("INSERT INTO szamlak VALUES('$code','$szamlaszam',0,0,'$ido')");
     }
 
     if(isset($_POST['deleteSzamlaszam'])){
@@ -21,6 +22,19 @@
     if(isset($_POST['deleteCard-btn'])){
         $torles = $_POST['kartyaDeleteSz'];
         $conn->query("DELETE FROM cards WHERE kartyaszam='$torles'");
+    }
+
+    if(isset($_POST['up-btn'])){
+        $ertek = $_POST['ertek'];
+        $szamlaszam = $_POST['ember-szamlaszam'];
+
+        $lekerd = "SELECT * FROM szamlak WHERE szamlaszam = '$szamlaszam'";
+        $talalt = $conn->query($lekerd);
+        $sz = $talalt->fetch_assoc();
+
+        $ertek += $sz['osszeg'];
+
+        $conn->query("UPDATE szamlak SET osszeg = $ertek WHERE szamlaszam = '$szamlaszam'");
     }
 
     if(isset($_POST['new-card'])){
@@ -47,7 +61,7 @@
     
     <div id="szamlaDeleteModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close szclose">&times;</span>
             <form action="szamla.php?code=<?=$code?>" method="post">
                 <label>Melyik Számlaszámot szeretnéd törölni?: </label>
                 <select name="deleteSzamlasz" class="modalSelect">
@@ -65,7 +79,7 @@
     </div>
     <div id="kartyaDeleteModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close kclose">&times;</span>
             <form action="szamla.php?code=<?=$code?>" method="post">
                 <label>Melyik Kártyaszámot szeretnéd törölni?: </label>
                 <select name="kartyaDeleteSz" class="modalSelect">
@@ -87,13 +101,13 @@
     </div>
     <div id="addMondeyModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close mclose">&times;</span>
             <div class="add-money">
                 <h2>Pénz feltöltése</h2>
                 <form action="szamla.php?code=<?=$customer['code']?>" method="post">
                     <select name="ember-szamlaszam">
                         <?php
-                            $lekerd = "SELECT * FROM szamlak";
+                            $lekerd = "SELECT * FROM szamlak WHERE user_azonosito = '$customer[code]'";
                             $talalt = $conn->query($lekerd);
                             while($szamla=$talalt->fetch_assoc()){
                         ?>
