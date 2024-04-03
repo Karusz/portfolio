@@ -68,6 +68,11 @@
             </select>
             <input type="password" name="pin" placeholder="4 jegyű PIN" maxlength="4" require>
             <input type="password" name="repin" placeholder="4 jegyű PIN újra" maxlength="4" require>
+            <select name="type">
+                <option value="">Válassz kártya típust</option>
+                <option value="Mastercard">Mastercard</option>
+                <option value="Visa">Visa</option>
+            </select>
 
             <button name="create-card">Kártya létrehozása</button>
         </form>
