@@ -1,3 +1,9 @@
+<?php
+  require "config.php";
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -38,22 +44,23 @@
     </div>
 
     <!-- POST CARD START -->
+    <?php
+      $lekerd = "SELECT * FROM posts";
+      $talalt = $conn->query($lekerd);
+      while($post = $talalt->fetch_assoc()){
+    
+    ?>
     <div class="post d-flex">
       <div class="post-card">
-        <img src="..." class="card-img-top" alt="Post thumbnail">
+        <img src="asstes/img/postimg/<?=$post['thumbnail']?>" class="card-img-top" alt="Post thumbnail">
         <div class="card-body">
-          <h5 class="card-title">Post</h5>
-          <p class="card-text">Postbol par sor</p>
-        </div>
-      </div>
-      <div class="post-card">
-        <img src="..." class="card-img-top" alt="Post thumbnail">
-        <div class="card-body">
-          <h5 class="card-title">Post</h5>
-          <p class="card-text">Postbol par sor</p>
+          <h5 class="card-title"><?= $post['name']?></h5>
+          <p class="card-text"><?= $post['short_text']?></p>
+          <a href="post.php?id=<?=$post['id']?>"><button>Tovabb</button></a>
         </div>
       </div>
     </div>
+    <?php } ?>
     <!-- POST CARD END -->
     
   </div>

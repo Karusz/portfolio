@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Jan 18. 13:05
+-- Létrehozás ideje: 2024. Jan 22. 12:31
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.2.4
 
@@ -54,6 +54,13 @@ CREATE TABLE `posts` (
   `text` varchar(1000) NOT NULL,
   `thumbnail` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `posts`
+--
+
+INSERT INTO `posts` (`id`, `name`, `short_text`, `text`, `thumbnail`) VALUES
+(1, 'Proba', 'Proba post', 'Ez egy proba post, ami csak azert kell, hogy legyen alami, mert jo lenne, ha mukodne', 'profilkep.jpg');
 
 -- --------------------------------------------------------
 
@@ -112,7 +119,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT a táblához `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT a táblához `user`

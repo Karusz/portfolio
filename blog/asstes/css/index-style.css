@@ -12,13 +12,29 @@
     margin-bottom: 20px;
 }
 
+.card-body button{
+    display: block;
+    margin: auto;
+}
 
+.card-body a{
+    text-decoration: none;
+}
 
 /* ABOUT END*/
 
 /* POST CARD START*/
 .post{
     padding: 5px;
+}
+
+.post-card img{
+    width: 200px;
+    border-radius: 20px;
+}
+
+.post-card h5, p {
+    text-align: center;
 }
 
 .post-card{
@@ -29,3 +45,15 @@
 }
 
 /* POST CARD END*/
+
+button{
+    border: 1px solid var(--black);
+    border-radius: 15px;
+    padding: 5px;
+    background-color: var(--red);
+}
+
+button:hover{
+    background-color: var(--darkred);
+    color: white;
+}

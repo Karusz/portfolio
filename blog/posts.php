@@ -31,28 +31,25 @@
     <!-- NAVBAR START -->
     <div id="navbar"></div>
     <!-- NAVBAR END-->
-    <div class="content container ">
-        <div class="row post">
-          <?php
-          $lekerd = "SELECT * FROM posts ORDER BY id DESC";
-          $talalt = $conn->query($lekerd);
-          while ($post=$talalt->fetch_assoc()) {
-            
-          
-          ?>
-          <div class="col-3">
-            <img src="asstes/img/<?=$post['thumbnail']?>" alt="">
-          </div>
-          <div class="col-9">
-              <h2><?=$post['name']?></h2>
-              <p><?= $post['short_text']?></p>
-              <button><a href="post.php?postid=<?=$post['id']?>">Tovabb</a></button>
-          </div>
-          <?php }?>
+<!-- POST CARD START -->
+<?php
+      $lekerd = "SELECT * FROM posts";
+      $talalt = $conn->query($lekerd);
+      while($post = $talalt->fetch_assoc()){
+    
+    ?>
+    <div class="post-content container d-flex">
+      <div class="post-card">
+        <img src="asstes/img/postimg/<?=$post['thumbnail']?>" class="card-img-top" alt="Post thumbnail">
+        <div class="card-body">
+          <h5 class="card-title"><?= $post['name']?></h5>
+          <p class="card-text"><?= $post['short_text']?></p>
+          <a href="post.php?id=<?=$post['id']?>"><button>Tovabb</button></a>
         </div>
-      
-      
+      </div>
     </div>
+    <?php } ?>
+    <!-- POST CARD END -->
 </body>
 </html>
 <script>
