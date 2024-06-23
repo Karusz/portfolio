@@ -101,7 +101,7 @@
                                 <td><?=$user['id']?></td>
                                 <td><?=$user['name']?></td>
                                 <td><?=$user['email']?></td>
-                                <td><?php if($admin['id'] == $user['id']){ echo 'Igen';} else{echo 'Nem';} ?></td>
+                                <td><?php if($admin['user_id'] == $user['id']){ echo 'Igen';}else{echo 'Nem';} ?></td>
                             </tr>
                             <?php } ?>
                         </tbody>

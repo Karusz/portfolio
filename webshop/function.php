@@ -57,7 +57,7 @@
 				}else{
 					$paycount += $termek['sale_price']*$csomag[0];
 				}
-                $termekek .= $csomag[0]."-".$csomag[1].";";
+                //$termekek .= $csomag[0]."-".$csomag[1].";";
                 
 				
 			}

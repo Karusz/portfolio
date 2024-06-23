@@ -23,7 +23,6 @@
             $talalt = $conn->query($lekerd);
             while($event = $talalt->fetch_assoc()){
                 $id = $event['id'];
-
                 if($_SESSION['id'] != $event['userid']){
                     echo '<form action="event.php?eventid='.$id.'" method="post">
                         <fieldset class="jegy">
