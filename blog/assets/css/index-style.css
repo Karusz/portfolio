@@ -1,0 +1,12 @@
+.newpost{
+    border: 2px solid red;
+    
+}
+
+.newpost-content{
+    padding: 25px;
+}
+
+.card{
+    width: 18rem;
+}

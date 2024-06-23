@@ -1,0 +1,12 @@
+
+textarea {
+    height: 150px;
+    box-sizing: border-box;
+    font-size: 16px;
+    resize: none;
+}
+
+.btn{
+    border-radius: 15px !important;
+    width: 50%;
+}
