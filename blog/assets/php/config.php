@@ -1,5 +1,5 @@
 <?php 
-
+	session_start();
 	//MEGADJUK A BELÉPÉSI ADATOKAT
 	$conn = new mysqli("localhost", "root", "", "blog");
 	

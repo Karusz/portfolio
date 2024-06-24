@@ -1,3 +1,7 @@
+<?php
+    require "assets/php/config.php";
+
+?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -22,10 +26,40 @@
     <link rel="stylesheet" href="assets/css/kap-style.css">
 </head>
 <body>
-    <header id="navbar"></header>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Tenth navbar example">
+            <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-md-center" id="nav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.php">Kezdolap</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="allpost.php">Posztok</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Kapcsolat</a>
+                </li>
+                <?php if(empty($_SESSION['id'])){ ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.php">Bejelentkezes</a>
+                </li>
+                <?php }else{?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="assets/php/logout.php">Kijelentkezés</a>
+                    </li>
+                <?php }?>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </header>
     <div class="container mt-3">
         <div class="container d-flex justify-content-center text-center">
-            <form class="login-container">
+            <form class="kap-container">
                 <div>
                     <h3>Kapcsolat</h3>
                 </div>
@@ -43,7 +77,5 @@
     </div>
 </body>
 </html>
-<script>
-    $('#navbar').load('assets/php/nav.php');
-</script>
+
 

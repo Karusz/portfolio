@@ -1,5 +1,9 @@
 .login-container{
-    margin: 0 auto;
+    margin: 20%;
+    border: 2px black solid;
+    padding: 25px;
+    border-radius: 20px;
+
 }
 
 .log-btn{

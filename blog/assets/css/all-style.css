@@ -3,8 +3,76 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: rgba(0, 0, 0, 0.637);
+}
+
 input, textarea{
     border: 2px solid black !important;
     width: 350px !important;
     border-radius: 10px !important;
+}
+
+.line{
+    border: 2px solid rgba(128, 128, 128, 0.678);
+}
+
+/* Posts */
+
+
+.post .card{
+    width: 250px;
+    height: auto;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.432);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 20px;
+}
+
+.post .card .img{
+    height: 200px;
+    width: auto;
+    border: solid 1px gray;
+}
+
+.post .card .short{
+    padding: 5px 20px;
+    opacity: 0.8;
+}
+
+.post .card .title{
+    font-weight: 900;
+    font-size: 20px;
+    padding: 0 20px;
+}
+
+.post .card .btn-tov{
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.post .card .btn-tov a {
+    color: white;
+    text-decoration: none;
+}
+
+.post .card .btn-tov:hover{
+    background-color: rgba(0, 0, 0, 0.726);
+}
+
+.post .card .date{
+    margin: 10px;
+    border-top: 2px solid rgba(128, 128, 128, 0.568);
+    color: gray;
+}
+
+.newpostbg{ 
+    background-color: rgba(128, 128, 128, 0.61);
+}
+
+.asd{
+    border: 2px solid red;
 }
