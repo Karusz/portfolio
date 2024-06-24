@@ -57,7 +57,7 @@ i{
     height: 450px;
 }
 
-.content .bottom-data .notifdiv{
+.content .bottom-data .notifs{
     width: 35%;
     padding: 25px;
     grid-gap: 24px;
@@ -66,4 +66,34 @@ i{
     background-color: white;
     box-shadow:0 0 14px rgba(0, 0, 0, 0.658);
     margin-left: 29px;
+}
+
+.content .bottom-data .notifications{
+    border: 2px solid rgba(128, 128, 128, 0.664);
+    height: 90%;
+    border-radius: 25px;
+}
+
+.content .bottom-data .notif{
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.content .bottom-data .noti-content{
+    margin: 5px;
+}
+
+.icon{
+    float: right;
+}
+
+
+.faicon{
+    border-right: 2px solid rgba(128, 128, 128, 0.61);
+}
+
+a{
+    border-radius: 10px !important;
+    padding: 3px !important;
 }

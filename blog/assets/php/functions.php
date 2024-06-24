@@ -9,7 +9,7 @@
 
             if($admin['psw'] == $psw){
                 $_SESSION['id'] = $admin['id'];
-                header("location: admin/admin.html");
+                header("location: admin/admin.php");
             }else{
                 echo "<script>alert('Helytelen jelszó')</script>";
             }

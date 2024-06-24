@@ -23,7 +23,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Tenth navbar example">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3" aria-label="Tenth navbar example">
             <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -124,17 +124,31 @@
                             
                         </div>
                     </div>
-                    <div class="notifdiv col-">
+                    <div class="notifs col-">
                         <div class="head">
                             <h3 class="text-center">Értesítések</h3>
                         </div>
-                        <div class="static">
-                            
+                        <div class="notifications">
+                            <div class="notif">
+                                <div class="noti-content">
+                                    <div class="icon"></div>
+                                    <i class="fa-solid fa-comment fa-xl faicon"></i>
+                                    <i>Komment érkezett a poszt alá</i>
+                                    <a href="" class="btn btn-primary" style="margin-left: 92px;">Megnézés</a>
+                                </div>
+                            </div>
+                            <div class="notif">
+                                <div class="noti-content">
+                                    <div class="icon"></div>
+                                    <i class="fa-solid fa-pen-nib fa-xl faicon"></i>
+                                    <i >Poszt létrehozva</i>
+                                    <a href="" class="btn btn-primary" style="margin-left: 185px;">Megnézés</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
 </body>

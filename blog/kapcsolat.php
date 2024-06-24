@@ -49,6 +49,9 @@
                 </li>
                 <?php }else{?>
                     <li class="nav-item">
+                        <a class="nav-link" href="admin/admin.php">Admin</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="assets/php/logout.php">Kijelentkezés</a>
                     </li>
                 <?php }?>
