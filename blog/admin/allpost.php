@@ -65,7 +65,6 @@
         <div class="row">
             <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidenav col-">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                     <span class="fs-4">Admin Nav</span>
                 </a>
                 <hr>
@@ -74,6 +73,12 @@
                     <a href="admin.php" class="nav-link text-white">
                         <i class="fa-solid fa-house"></i>
                         Kezdőlap
+                    </a>
+                    </li>
+                    <li>
+                    <a href="messages.php" class="nav-link text-white">
+                        <i class="fa-solid fa-message"></i>
+                        Üzenetek
                     </a>
                     </li>
                     <li>

@@ -122,3 +122,9 @@ a{
 .btn-newpost:hover{
     background-color: rgba(12, 143, 0, 0.623);
 }
+
+/* Messages */
+.messages{
+    border: 2px solid rgba(128, 128, 128, 0.664);
+    border-radius: 25px;
+}

@@ -1,6 +1,10 @@
 <?php
     require "../assets/php/config.php";
-
+    $id = $_SESSION['id'];
+    
+    $lekerd = "SELECT * FROM admins WHERE id = $id";
+    $talalt = $conn->query($lekerd);
+    $admin = $talalt->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -65,7 +69,6 @@
         <div class="row">
             <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidenav col-">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                     <span class="fs-4">Admin Nav</span>
                 </a>
                 <hr>
@@ -74,6 +77,12 @@
                     <a href="#" class="nav-link active text-white" aria-current="page">
                         <i class="fa-solid fa-house"></i>
                         Kezdőlap
+                    </a>
+                    </li>
+                    <li>
+                    <a href="messages.php" class="nav-link text-white">
+                        <i class="fa-solid fa-message"></i>
+                        Üzenetek
                     </a>
                     </li>
                     <li>
@@ -98,36 +107,47 @@
             </div>
             <!-- Content -->
             <div class="col-md-10 col-xm-6 container-fluid content">
-                <h3 class="p-3">Nev</h3>
+                <h3 class="p-3">Üdv, <?=$admin['name']?></h3>
                 <ul class="insights">
                     <li>
                         <i class="fa-solid fa-user-tie fa-2xl"></i>
                         <span class="info">
                             <h3>Adminok</h3>
-                            <p>asd</p>
+                            <p><?= mysqli_num_rows($talalt)?></p>
                         </span>
                     </li>
-                
+                    <?php
+                        $lekerd = "SELECT * FROM viewers";
+                        $talalt = $conn->query($lekerd);
+                    
+                    ?>
                     <li>
                         <i class="fa-solid fa-user fa-2xl"></i>
                         <span class="info">
                             <h3>Olvasók</h3>
-                            <p>asd</p>
+                            <p><?= mysqli_num_rows($talalt)?></p>
                         </span>
                     </li>    
-                
+                    <?php
+                        $lekerd = "SELECT * FROM posts";
+                        $talalt = $conn->query($lekerd);
+                    ?>
                     <li>
                         <i class="fa-solid fa-folder fa-2xl"></i>
                         <span class="info">
                             <h3>Posztok</h3>
-                            <p>asd</p>
+                            <p><?= mysqli_num_rows($talalt)?></p>
                         </span>
                     </li>
+                    <?php
+                        $lekerd = "SELECT * FROM comments";
+                        $talalt = $conn->query($lekerd);
+                    ?>
                     <li>
-                        <i class="fa-solid fa-newspaper fa-2xl"></i>
+                    <i class="fa-solid fa-comment fa-2xl "></i>
                         <span class="info">
-                            <h3>Lapok</h3>
-                            <p>asd</p>
+                            <h3>Hozzászólások</h3>
+                            <p><?= mysqli_num_rows($talalt)?></p>
                         </span>
                     </li>
                 </ul>
@@ -144,23 +164,46 @@
                         <div class="head">
                             <h3 class="text-center">Értesítések</h3>
                         </div>
+                        
                         <div class="notifications">
-                            <div class="notif">
-                                <div class="noti-content">
-                                    <div class="icon"></div>
-                                    <i class="fa-solid fa-comment fa-xl faicon"></i>
-                                    <i>Komment érkezett a poszt alá</i>
-                                    <a href="" class="btn btn-primary" style="margin-left: 92px;">Megnézés</a>
-                                </div>
-                            </div>
-                            <div class="notif">
-                                <div class="noti-content">
-                                    <div class="icon"></div>
-                                    <i class="fa-solid fa-pen-nib fa-xl faicon"></i>
-                                    <i >Poszt létrehozva</i>
-                                    <a href="" class="btn btn-primary" style="margin-left: 185px;">Megnézés</a>
-                                </div>
-                            </div>
+                            <?php
+                                $lekerd = "SELECT * FROM notifications ORDER BY ID desc";
+                                $talalt = $conn->query($lekerd);
+                                while($notif = $talalt->fetch_assoc()){
+                                    switch ($notif['type']) {
+                                        case 'Komment':
+                                            echo '<div class="notif">
+                                                    <div class="noti-content">
+                                                        <div class="icon"></div>
+                                                        <i class="fa-solid fa-comment fa-xl faicon"></i>
+                                                        <i>Komment érkezett a poszt alá</i>
+                                                        <a href="../'.$notif['link'].'" class="btn btn-primary" style="margin-left: 92px;">Megnézés</a>
+                                                    </div>
+                                                </div>';
+                                            break;
+                                        case 'Post':
+                                            echo ' <div class="notif">
+                                                    <div class="noti-content">
+                                                        <div class="icon"></div>
+                                                        <i class="fa-solid fa-pen-nib fa-xl faicon"></i>
+                                                        <i >Poszt létrehozva</i>
+                                                    </div>
+                                                </div>';
+                                            break;
+                                        case 'Message':
+                                            echo '<div class="notif">
+                                                    <div class="noti-content">
+                                                        <div class="icon"></div>
+                                                        <i class="fa-solid fa-message fa-xl faicon"></i>
+                                                        <i >Üzenet érkezett</i>
+                                                    </div>
+                                                </div>';
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>

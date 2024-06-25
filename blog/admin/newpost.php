@@ -37,6 +37,7 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="../index.php">Kezdolap</a>
                     </li>
+                    <li>
                     <li class="nav-item">
                         <a class="nav-link" href="../allpost.php">Posztok</a>
                     </li>
@@ -73,6 +74,12 @@
                     <a href="admin.php" class="nav-link text-white">
                         <i class="fa-solid fa-house"></i>
                         Kezdőlap
+                    </a>
+                    </li>
+                    <li>
+                    <a href="messages.php" class="nav-link text-white">
+                        <i class="fa-solid fa-message"></i>
+                        Üzenetek
                     </a>
                     </li>
                     <li>
