@@ -23,38 +23,38 @@
 </head>
 <body>
     <header>
-    <nav class="navbar navbar-expand-lg navbar-dark p-3 bg-dark" aria-label="Tenth navbar example">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-md-center" id="nav">
-                <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Kezdolap</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="allpost.php">Posztok</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="kapcsolat.php">Kapcsolat</a>
-                </li>
-                <?php if(empty($_SESSION['id'])){ ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.php">Bejelentkezes</a>
-                </li>
-                <?php }else{?>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Tenth navbar example">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-md-center" id="nav">
+                    <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="admin/admin.php">Admin</a>
+                        <a class="nav-link" aria-current="page" href="#">Kezdolap</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="assets/php/logout.php">Kijelentkezés</a>
+                        <a class="nav-link" href="allpost.php">Posztok</a>
                     </li>
-                <?php }?>
-                </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kapcsolat.php">Kapcsolat</a>
+                    </li>
+                    <?php if(empty($_SESSION['id'])){ ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Bejelentkezes</a>
+                    </li>
+                    <?php }else{?>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="admin/admin.php">Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="assets/php/logout.php">Kijelentkezés</a>
+                        </li>
+                    <?php }?>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
         <!-- SIDE NAV -->
      </header>
      <div class="container-fluid">
@@ -67,25 +67,25 @@
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                    <a href="#" class="nav-link active text-white" aria-current="page">
+                    <a href="admin.php" class="nav-link text-white">
                         <i class="fa-solid fa-house"></i>
                         Kezdőlap
                     </a>
                     </li>
                     <li>
-                    <a href="newpost.php" class="nav-link text-white" aria-current="page">
+                    <a href="newpost.php" class="nav-link text-white" >
                         <i class="fa-solid fa-file"></i>
                         Poszt írása
                     </a>
                     </li>
                     <li>
-                    <a href="allpost.php" class="nav-link text-white">
+                    <a href="allpost.php" class="nav-link text-white" >
                         <i class="fa-solid fa-folder"></i>
                         Posztok
                     </a>
                     </li>
                     <li>
-                    <a href="addadmin.php" class="nav-link text-white">
+                    <a href="addadmin.php" class="nav-link active text-white" aria-current="page">
                         <i class="fa-solid fa-user-tie"></i>
                         Admin hozzáadása
                     </a>
