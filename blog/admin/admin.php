@@ -1,3 +1,7 @@
+<?php
+    require "../assets/php/config.php";
+
+?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -31,17 +35,17 @@
             <div class="collapse navbar-collapse justify-content-md-center" id="nav">
                 <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Kezdolap</a>
+                    <a class="nav-link" aria-current="page" href="../index.php">Kezdolap</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="allpost.php">Posztok</a>
+                    <a class="nav-link" href="../allpost.php">Posztok</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="kapcsolat.php">Kapcsolat</a>
+                    <a class="nav-link" href="../kapcsolat.php">Kapcsolat</a>
                 </li>
                 <?php if(empty($_SESSION['id'])){ ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.php">Bejelentkezes</a>
+                    <a class="nav-link" href="../login.php">Bejelentkezes</a>
                 </li>
                 <?php }else{?>
                     <li class="nav-item">

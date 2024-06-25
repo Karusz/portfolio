@@ -1,3 +1,7 @@
+<?php
+    require "../assets/php/config.php";
+
+?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -23,7 +27,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Tenth navbar example">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3" aria-label="Tenth navbar example">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -31,17 +35,17 @@
                 <div class="collapse navbar-collapse justify-content-md-center" id="nav">
                     <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Kezdolap</a>
+                        <a class="nav-link" aria-current="page" href="../index.php">Kezdolap</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="allpost.php">Posztok</a>
+                        <a class="nav-link" href="../allpost.php">Posztok</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="kapcsolat.php">Kapcsolat</a>
+                        <a class="nav-link" href="../kapcsolat.php">Kapcsolat</a>
                     </li>
                     <?php if(empty($_SESSION['id'])){ ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">Bejelentkezes</a>
+                        <a class="nav-link" href="../login.php">Bejelentkezes</a>
                     </li>
                     <?php }else{?>
                         <li class="nav-item">
@@ -61,7 +65,6 @@
         <div class="row">
             <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidenav col-">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                     <span class="fs-4">Admin Nav</span>
                 </a>
                 <hr>
@@ -93,71 +96,24 @@
                 </ul>
             </div>
             <!-- Content -->
-            <div class="col-md-10 col-xm-6 container-fluid content">
-                <h3 class="p-3">Nev</h3>
-                <ul class="insights">
-                    <li>
-                        <i class="fa-solid fa-user-tie fa-2xl"></i>
-                        <span class="info">
-                            <h3>Adminok</h3>
-                            <p>asd</p>
-                        </span>
-                    </li>
-                
-                    <li>
-                        <i class="fa-solid fa-user fa-2xl"></i>
-                        <span class="info">
-                            <h3>Olvasók</h3>
-                            <p>asd</p>
-                        </span>
-                    </li>    
-                
-                    <li>
-                        <i class="fa-solid fa-folder fa-2xl"></i>
-                        <span class="info">
-                            <h3>Posztok</h3>
-                            <p>asd</p>
-                        </span>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-newspaper fa-2xl"></i>
-                        <span class="info">
-                            <h3>Lapok</h3>
-                            <p>asd</p>
-                        </span>
-                    </li>
-                </ul>
-                <div class="bottom-data row">
-                    <div class="staticdiv col-">
-                        <div class="head">
-                            <h3 class="text-center">Statisztika</h3>
-                        </div>
-                        <div class="static">
-                            
-                        </div>
+            <div class="col-md-10 col-xm-6 container content">
+                <div class="newpost">
+                    <div class="head">
+                        <h3 class="text-center">Poszt írása</h3>
+                        <div class="line"></div>
                     </div>
-                    <div class="notifs col-">
-                        <div class="head">
-                            <h3 class="text-center">Értesítések</h3>
-                        </div>
-                        <div class="notifications">
-                            <div class="notif">
-                                <div class="noti-content">
-                                    <div class="icon"></div>
-                                    <i class="fa-solid fa-comment fa-xl faicon"></i>
-                                    <i>Komment érkezett a poszt alá</i>
-                                    <a href="" class="btn btn-primary" style="margin-left: 92px;">Megnézés</a>
-                                </div>
-                            </div>
-                            <div class="notif">
-                                <div class="noti-content">
-                                    <div class="icon"></div>
-                                    <i class="fa-solid fa-pen-nib fa-xl faicon"></i>
-                                    <i >Poszt létrehozva</i>
-                                    <a href="" class="btn btn-primary" style="margin-left: 185px;">Megnézés</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class=" d-flex justify-content-center text-center m-5">
+                        <form action="newpost.php" method="post">
+                            <label class="justify-content-start d-flex">Címe</label>
+                            <input type="text" class="form-control">
+                            <label class="justify-content-start d-flex">Rövid leírás</label>
+                            <input type="text" class="form-control">
+                            <label class="justify-content-start d-flex">Poszt</label>
+                            <textarea name="" id="" class="form-control" style="width: 550px; height: 200px"></textarea>
+                            <label class="justify-content-start d-flex">Thumbnail</label>
+                            <input type="file" name="" id="" class="form-control">
+                            <button class="btn btn-newpost">Küldés</button>
+                        </form>
                     </div>
                 </div>
             </div>
