@@ -19,4 +19,9 @@
         
     }
 
+    function Kapcsolat($email, $text){
+        $conn = new mysqli("localhost", "root", "", "blog");
+        $conn->query("INSERT INTO messages VALUES(id, '$email', '$text')");
+    }
+
 ?>

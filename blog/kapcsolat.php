@@ -1,6 +1,12 @@
 <?php
     require "assets/php/config.php";
+    require "assets/php/functions.php";
 
+    if(isset($_POST['kuld-btn'])){
+        $email = $_POST['email'];
+        $text = $_POST['text'];
+        Kapcsolat($email, $text);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -62,19 +68,19 @@
     </header>
     <div class="container mt-3">
         <div class="container d-flex justify-content-center text-center">
-            <form class="kap-container">
+            <form class="kap-container" method="post" action="kapcsolat.php">
                 <div>
                     <h3>Kapcsolat</h3>
                 </div>
                 <div class="mb-3">
                   <label class="form-label d-flex justify-content-start">Email</label>
-                  <input type="email" class="form-control">
+                  <input type="email" name="email" class="form-control">
                 </div>
                 <div class="mb-3">
                   <label class="form-label d-flex justify-content-start">Üzenet</label>
-                  <textarea name="text" class="form-control"></textarea>
+                  <textarea name="text" name="text" class="form-control"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Elküldés</button>
+                <button type="submit" name="kuld-btn" class="btn btn-primary">Elküldés</button>
             </form>
         </div>
     </div>
