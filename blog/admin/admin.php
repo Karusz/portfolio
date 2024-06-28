@@ -22,7 +22,6 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="assets/js/main.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
@@ -156,7 +155,7 @@
                         <div class="head">
                             <h3 class="text-center">Statisztika</h3>
                         </div>
-                        <div class="static">
+                        <div class="static" id="stat">
                             
                         </div>
                     </div>
@@ -210,6 +209,7 @@
             </div>
         </div>
     </div>
+    <script src="js/stat.js"></script>
 </body>
 </html>
 

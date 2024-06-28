@@ -18,7 +18,7 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="assets/js/main.js"></script>
+    
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -94,7 +94,10 @@
                 <?php } ?>
             </div>
         </div>
+        <div id="CounterVisitor">
+        </div>
     </div>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
 
