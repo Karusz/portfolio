@@ -1,6 +1,6 @@
 var div = document.getElementById("stat");
 
-import { viewer as n } from "../../assets/js/main.js";
+import { nums} from "../../assets/js/main";
 
-var v = n;
+var v = nums;
 console.log(v);

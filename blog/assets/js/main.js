@@ -9,4 +9,4 @@ localStorage.setItem("on_load_counter", n);
 
 nums = n.toString().split('').map(Number);
 
-export {n as viewer }; 
+export { nums };
