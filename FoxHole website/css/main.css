@@ -12,7 +12,6 @@
     font-weight: 500;
     font-style: normal;
     color: var(--white) !important;
-
 }
 
 body{
@@ -62,4 +61,8 @@ footer{
 
 .btn-end{
     float: inline-end;
+}
+
+input, textarea{
+    color: black !important;
 }
