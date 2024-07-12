@@ -1,7 +1,4 @@
-<?php
-    require "config.php";
 
-?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -97,23 +94,57 @@
     <div class="text-center container" id="staff">
         <h3 class="mt-5 text-center">Vezetőség</h3>
         <div class="row d-flex justify-content-center">
-            <?php
-                $lekerd = "SELECT * FROM staffs";
-                $talalt = $conn->query($lekerd);
-                while($staff = $talalt->fetch_assoc()){  
-            ?>
-            <div class="col-md-3 m-4">
+                        <div class="col-md-3 m-4">
                 <div class="card dc">
-                    <img src="img/<?=$staff['img']?>" class="card-img-top" alt="...">
-                    <div class="card-header"><?= $staff['pozicio']?></div>
+                    <img src="img/ezi.jpg" class="card-img-top" alt="...">
+                    <div class="card-header">Tulaj</div>
                     <div class="card-body">
-                        <h5 class="card-title"><?=$staff['nev']?></h5>
-                        <p class="card-text"><?=$staff['leiras']?></p>
+                        <h5 class="card-title">Ezi (ezi0104)</h5>
+                        <p class="card-text">Ezi vagyok a szervernek az Atyja, vagy mi a rák. Programozni tanulok, és ebben is képzelem el a jövőmet. Hobbiként gépet szerelek, játszom. Mindenféle zenét meghallgatok, de inkább Rockot, POP-ot, Rap-ez. Nagyesetben magyart, de néha angolt is. Sokszor szoktam itt lenni a Voice-on, szóval lehet velem beszélni, mert ki ne akarna. Nem szabad komolyan venni. Tudok komoly lenni, de általában ez nem jellemző rám. Szóval nagyon szépen megkérlek, hogy ne sértődj meg semmin, amit mondok.</p>
                     </div>
                 </div>
             </div>
-            <?php } ?>
-            
+                        <div class="col-md-3 m-4">
+                <div class="card dc">
+                    <img src="img/rain.jpg" class="card-img-top" alt="...">
+                    <div class="card-header">AlTulaj</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Rain (btw.rain)</h5>
+                        <p class="card-text">A szerver Altulaja vagyok (Szerver Istenének fia, Jézus). Amennyiben bármi problémád adódna, nyugodtan keress meg,esküszöm nem harapok.</p>
+                    </div>
+                </div>
+            </div>
+                        <div class="col-md-3 m-4">
+                <div class="card dc">
+                    <img src="img/gyuri.jpg" class="card-img-top" alt="...">
+                    <div class="card-header">Admin</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Gyuri (gyur15)</h5>
+                        <p class="card-text">Gyuri vagyok 14 éves kedves, érdeklődő ember. Néha lehet nehezen csatlakozok a beszélgetésekhez viszont mindig elérhető vagyok! Ha bármi kérdésed van fordulj hozzám vagy a többiekhez.</p>
+                    </div>
+                </div>
+            </div>
+                        <div class="col-md-3 m-4">
+                <div class="card dc">
+                    <img src="img/noel.jpg" class="card-img-top" alt="...">
+                    <div class="card-header">Admin</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Noel (noksl)</h5>
+                        <p class="card-text">Sziasztok ! Noel vagyok 22 éves imádom a tetoválásokat hobbim az airsoft. Fegyveres szerveknél dolgozok, volt katona vagyok, ha valakinek segitség kell nyugodtan forduljon hozám. Légyszives ne mentális problémákkal. Ettől függetlenül bármiröl szívesen beszélgetek. Ezi adminja vagyok én vagyok a spárta Ezi meg a kemál. Jó szorakozást kivánok nektek a szerveren!</p>
+                    </div>
+                </div>
+            </div>
+                        <div class="col-md-3 m-4">
+                <div class="card dc">
+                    <img src="img/bubi.jpg" class="card-img-top" alt="...">
+                    <div class="card-header">Moderátor</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Bubi (whoisbubi)</h5>
+                        <p class="card-text">Bubi vagyok 18 eves és adom a jatekokat nagyon funok (nincs gepem) es öhhh ennyi.</p>
+                    </div>
+                </div>
+            </div>
+                        
         </div>
     </div>
     <!-- STAT -->
@@ -151,20 +182,55 @@
         <div class="text-center container" >
             <h3 class="text-center mt-5">Egyéb Rangok</h3>
             <div class="row d-flex justify-content-center">
-                <?php
-                    $lekerd = $conn->query("SELECT * FROM rangs");
-                    while($rang = $lekerd->fetch_assoc()){
-                ?>
-                <div class="col-md-3 m-4">
+                                <div class="col-md-3 m-4">
                     <div class="card dc">
                         <div class="card-body">
-                            <h5 class="card-title"><?=$rang['name']?></h5>
-                            <p class="card-text"><?=$rang['text']?></p>
+                            <h5 class="card-title">Film Vetítő</h5>
+                            <p class="card-text">Filmeket tud vetíteni és szavazást indítani a Filmek fórumban.</p>
                         </div>
                     </div>
                 </div>
-                <?php } ?>
-            </div>
+                                <div class="col-md-3 m-4">
+                    <div class="card dc">
+                        <div class="card-body">
+                            <h5 class="card-title">Ellenőrzött</h5>
+                            <p class="card-text">Eme rangot a szabályzat elfogadásával tudod megkapni. Ez a rang sükséges, hogy részt tudj venni a szerver közösségében.</p>
+                        </div>
+                    </div>
+                </div>
+                                <div class="col-md-3 m-4">
+                    <div class="card dc">
+                        <div class="card-body">
+                            <h5 class="card-title">Event Creator</h5>
+                            <p class="card-text">Eventeket talál ki és bonyolít le a szerveren.</p>
+                        </div>
+                    </div>
+                </div>
+                                <div class="col-md-3 m-4">
+                    <div class="card dc">
+                        <div class="card-body">
+                            <h5 class="card-title">BOTS</h5>
+                            <p class="card-text">Csak a botok kapnak ilyen rangot. Kinézet miatt, hogy ne legyenek a tagok között.</p>
+                        </div>
+                    </div>
+                </div>
+                                <div class="col-md-3 m-4">
+                    <div class="card dc">
+                        <div class="card-body">
+                            <h5 class="card-title">Server Booster</h5>
+                            <p class="card-text">Amennyiben boostolod a szervert, akkor kapod meg autómatikusan ezt a rangot. Tud soundboard-ozni a hangcsatornákban.</p>
+                        </div>
+                    </div>
+                </div>
+                                <div class="col-md-3 m-4">
+                    <div class="card dc">
+                        <div class="card-body">
+                            <h5 class="card-title">Partner</h5>
+                            <p class="card-text">Minden partnernek a szervere megtalálhatóak a szerveren a Partner csatornában.</p>
+                        </div>
+                    </div>
+                </div>
+                            </div>
         </div>
     </div>
     <!-- FOOTER -->
