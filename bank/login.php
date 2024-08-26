@@ -1,3 +1,12 @@
+<?php
+  require "assets/php/functions.php";
+
+  if(isset($_POST["login-btn"])){
+    Login($_POST['user_code'], $_POST['psw']);
+  }
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -46,7 +55,7 @@
           <div class=" collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto ">
               <li class="nav-item">
-                <a class="nav-link mx-2 text-uppercase active" aria-current="page" href="#">Kezdőlap</a>
+                <a class="nav-link mx-2 text-uppercase" href="index.html">Kezdőlap</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link mx-2 text-uppercase" href="#">Hírek</a>
@@ -60,7 +69,7 @@
             </ul>
             <ul class="navbar-nav ms-auto ">
               <li class="nav-item">
-                <a class="nav-link mx-2 text-uppercase" href="login.php"><i class="fa-solid fa-user fa-xl"></i></a>
+                <a class="nav-link mx-2 text-uppercase" href="login.php"></a>
               </li>
             </ul>
           </div>
@@ -68,7 +77,30 @@
       </nav>
     </header>
     <main>
-      <!-- CONTENT -->
+        <form action="login.php" method="post">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                            <div class="card-body p-5 text-center">
+                                <h3 class="mb-5">Bejelentkezés</h3>
+                                <div class="form-outline mb-4">
+                                  <label class="form-label" for="typeTextX-2"><i class="fa-solid fa-id-card-clip fa-xl"></i></label>
+                                    <input type="text" name="user_code" id="typeTextX-2" class="form-control form-control-lg" placeholder="Azonosító" />
+                                    
+                                </div>
+                                <div class="form-outline mb-4">
+                                  <label class="form-label" for="typePasswordX-2"><i class="fa-solid fa-lock fa-xl"></i></label>    
+                                  <input type="password" name="psw" id="typePasswordX-2" class="form-control form-control-lg" placeholder="Jelszó"/>
+                                    
+                                </div>
+                                <button class="btn btn-primary btn-lg btn-block" name="login-btn" type="submit">Bejelentkezés</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </main>
 
 

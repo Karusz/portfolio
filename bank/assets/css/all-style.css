@@ -2,3 +2,22 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+a {
+    font-size:14px;
+    font-weight:700
+}
+.superNav {
+    font-size:13px;
+}
+
+@media screen and (max-width:540px){
+    .centerOnMobile {
+      text-align:center;
+    }
+}
+
+
+.theme-btn{
+    border: none;
+}
