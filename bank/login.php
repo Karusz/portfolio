@@ -86,7 +86,7 @@
                                 <h3 class="mb-5">Bejelentkezés</h3>
                                 <div class="form-outline mb-4">
                                   <label class="form-label" for="typeTextX-2"><i class="fa-solid fa-id-card-clip fa-xl"></i></label>
-                                    <input type="text" name="user_code" id="typeTextX-2" class="form-control form-control-lg" placeholder="Azonosító" />
+                                  <input type="text" name="user_code" id="typeTextX-2" class="form-control form-control-lg" placeholder="Azonosító" />
                                     
                                 </div>
                                 <div class="form-outline mb-4">
