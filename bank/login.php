@@ -20,8 +20,9 @@
     <!-- Fonts -->
     <script src="https://kit.fontawesome.com/1316779f14.js" crossorigin="anonymous"></script>
 
-
+  <!-- CSS -->
     <link rel="stylesheet" href="assets/css/all-style.css">
+    <link rel="stylesheet" href="assets/css/login-style.css">
   </head>
   <body>
     <header>
@@ -85,16 +86,16 @@
                             <div class="card-body p-5 text-center">
                                 <h3 class="mb-5">Bejelentkezés</h3>
                                 <div class="form-outline mb-4">
-                                  <label class="form-label" for="typeTextX-2"><i class="fa-solid fa-id-card-clip fa-xl"></i></label>
-                                  <input type="text" name="user_code" id="typeTextX-2" class="form-control form-control-lg" placeholder="Azonosító" />
+                                  <!-- <label><i class="fa-solid fa-id-card-clip fa-xl"></i></label> -->
+                                  <input type="text" name="user_code" class="form-control" placeholder="Azonosító" />
                                     
                                 </div>
                                 <div class="form-outline mb-4">
-                                  <label class="form-label" for="typePasswordX-2"><i class="fa-solid fa-lock fa-xl"></i></label>    
-                                  <input type="password" name="psw" id="typePasswordX-2" class="form-control form-control-lg" placeholder="Jelszó"/>
+                                  <!-- <label ><i class="fa-solid fa-lock fa-xl"></i></label>    -->
+                                  <input type="password" name="psw" class="form-control" placeholder="Jelszó"/>
                                     
                                 </div>
-                                <button class="btn btn-primary btn-lg btn-block" name="login-btn" type="submit">Bejelentkezés</button>
+                                <button class="btn btn-primary " name="login-btn" type="submit">Bejelentkezés</button>
                             </div>
                         </div>
                     </div>
