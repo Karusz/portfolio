@@ -1,3 +1,12 @@
+<?php
+  require "../assets/php/config.php";
+  require "../assets/php/functions.php";
+
+  $id = $_SESSION['id'];
+  $lekerd=" SELECT * FROM users WHERE id= $id";
+  $talalt= $conn->query($lekerd);
+  $user = $talalt->fetch_assoc();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -24,7 +33,7 @@
               <select  class="me-3 border-0 bg-light">
                 <option value="hun-hu">HUN - HU</option>
               </select>
-              <span class="d-none d-lg-inline-block d-md-inline-block d-sm-inline-block d-xs-none me-3"><strong>info@somedomain.com</strong></span>
+              <span class="d-none d-lg-inline-block d-md-inline-block d-sm-inline-block d-xs-none me-3"><strong>email@valami.com</strong></span>
               <span class="me-3"><i class="fa-solid fa-phone me-1 text-warning"></i> <strong>36-70-123-1234</strong></span>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-none d-lg-block d-md-block-d-sm-block d-xs-none text-end">
@@ -69,7 +78,7 @@
             </ul>
             <ul class="navbar-nav ms-auto ">
               <li class="nav-item">
-                <a class="nav-link mx-2 text-uppercase" href="#"><i class="fa-solid fa-right-from-bracket fa-xl"></i></i></a>
+                <a class="nav-link mx-2 text-uppercase" href="../assets/php/logout.php"><i class="fa-solid fa-right-from-bracket fa-xl"></i></i></a>
               </li>
             </ul>
           </div>
@@ -77,8 +86,44 @@
       </nav>
     </header>
     <main>
-      <div class="user_data">
+      <div class="user_data container text-center p-3">
+        <p>Udv, <strong><?= $user['name']?></strong></p>
+        <p>Szamlaszam: <?=$user['card_number']?></p>
+      </div> 
+      <div class="card_data container row p-3">
+        <?php
+          $card_id = $user['card_id'];
+          $lekerd = "SELECT * FROM cards WHERE id= $card_id";
+          $talalt = $conn->query($lekerd);
+          $user_card = $talalt->fetch_assoc();
         
+        ?>
+        <div class="col-xl-12 p-2 card text-center">
+          <a href="#"><img src="../<?=$user_card['img']?>" class="card-img-top" alt="MastercardCard"></a>
+          <div class="card-body">
+            <h5 class="card-title"><?=$user_card['type']?></h5>
+            <p class="card-text"><?=$user['money']?> Ft</p>
+          </div>
+        </div>
+        
+
+        <div class="col-xl-12">
+          <div class="money_trans_word text-center">
+          <?php
+          $lekerd = "SELECT * FROM transfers WHERE user_id = $id";
+          $talalt = $conn->query($lekerd);
+          while($transfer= $talalt->fetch_assoc()){
+            if($transfer['in_or_out'] == 1){
+          ?>
+            <p class="plus"><?=$transfer['date']?> - <?=$transfer['name']?> - <?=$transfer['money']?> Ft | <a href="#"><i class="fa-solid fa-arrow-right-arrow-left"></i></a></p>
+            <?php } else{?>
+            <p class="minus"><?=$transfer['date']?>  - <?=$transfer['name']?> - <?=$transfer['money']?> Ft | <a href="#"><i class="fa-solid fa-arrow-right-arrow-left"></i></a></p>
+          <?php 
+              }
+            }
+          ?>
+          </div>
+        </div>
       </div>
     </main>
 

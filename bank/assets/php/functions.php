@@ -12,7 +12,7 @@
 
             if($user['psw'] == $psw){
                 $_SESSION['id'] = $user['id'];
-                header("location: users/account.html");
+                header("location: users/account.php");
             }else{
                 //Helytelen jelszo
             }
